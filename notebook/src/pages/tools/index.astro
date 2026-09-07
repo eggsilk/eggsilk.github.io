@@ -4,12 +4,12 @@ import Entry from '../../components/Entry.astro';
 import { getCollection } from 'astro:content';
 import { byNewest, withYearFlags } from '../../lib/format';
 
-const work = (await getCollection('work')).sort(byNewest);
+const tools = (await getCollection('tools')).sort(byNewest);
 ---
-<Base title="Work" section="work" description="Instruments and method pieces.">
-  <h3>Work</h3>
+<Base title="Tools" section="tools" description="Tools built for emissions monitoring and verification.">
+  <h3>Tools</h3>
   <ul class="list">
-    {withYearFlags(work).map(({ item, showYear }) => (
+    {withYearFlags(tools).map(({ item, showYear }) => (
       <Entry title={item.data.title} href={item.data.href} created={item.data.created} status={item.data.status} showYear={showYear} />
     ))}
   </ul>

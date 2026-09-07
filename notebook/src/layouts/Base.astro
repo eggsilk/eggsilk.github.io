@@ -4,13 +4,13 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
-  section?: 'home' | 'notes' | 'work' | 'about' | 'none';
+  section?: 'home' | 'notes' | 'tools' | 'about' | 'none';
 }
 const { title, description, section = 'none' } = Astro.props;
 const fullTitle = section === 'home' ? 'Ege Ipek' : `${title} · Ege Ipek`;
 const nav = [
   { href: '/notes/', label: 'Notes', key: 'notes' },
-  { href: '/work/', label: 'Work', key: 'work' },
+  { href: '/tools/', label: 'Tools', key: 'tools' },
   { href: '/about/', label: 'About', key: 'about' },
 ];
 ---

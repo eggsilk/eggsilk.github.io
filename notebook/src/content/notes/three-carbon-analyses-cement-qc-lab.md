@@ -9,7 +9,6 @@ modified: 2026-09-07
 status: published
 confidence: likely
 topics: [cement, MRR, carbon analyses]
-related: [embedded-emissions-determination-mrr]
 sources:
   - label: Regulation (EU) 2018/2066 (Monitoring and Reporting Regulation), Articles 38 and 39; Annex II; Annex IV Section 9
     href: https://eur-lex.europa.eu/eli/reg_impl/2018/2066

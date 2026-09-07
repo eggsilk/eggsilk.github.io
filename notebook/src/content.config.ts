@@ -29,11 +29,11 @@ const notes = defineCollection({
   }),
 });
 
-const work = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
+const tools = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/tools' }),
   schema: z.object({
-    id: z.string(),                      // I-001 instrument, M-001 method
-    kind: z.enum(['instrument', 'method']),
+    id: z.string(),                      // T-001
+    kind: z.enum(['tool']).default('tool'),
     title: z.string(),
     gloss: z.string(),
     created: z.coerce.date(),
@@ -45,4 +45,4 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { notes, work };
+export const collections = { notes, tools };
