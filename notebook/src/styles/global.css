@@ -98,18 +98,6 @@ p { padding-top: 16px; }
 .tail li + li { padding-top: 4px; }
 .tail .unv { color: var(--muted); }
 
-/* instrument */
-.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 32px; }
-.field { display: flex; flex-direction: column; gap: 4px; padding-bottom: 16px; }
-.field label { color: var(--muted); }
-.field input, .field select { font: inherit; letter-spacing: inherit; padding: 6px 8px; border: 1px solid #e6e6e6; background: #fff; color: var(--ink); border-radius: 0; }
-.field input:focus, .field select:focus { outline: none; border-color: var(--ink); }
-.field .hint { color: var(--muted); font-size: 13px; line-height: 18px; }
-.out { padding: 10px 0; border-bottom: 1px solid var(--rule); }
-.out .ol { color: var(--muted); }
-.out .ov { font-weight: 600; }
-.out .os { color: var(--muted); font-size: 13px; line-height: 18px; }
-.calc-math { font-family: var(--mono); font-size: 13px; line-height: 20px; color: var(--muted); white-space: pre-wrap; padding-top: 16px; }
 
 footer { padding-top: 80px; color: var(--muted); }
 footer a:hover { color: var(--ink); }
@@ -117,7 +105,6 @@ footer a:hover { color: var(--ink); }
 @media (max-width: 600px) {
   .page { padding: 48px 16px 64px; }
   :root { --yearcol: 56px; }
-  .calc { grid-template-columns: 1fr; }
   .facts li { flex-direction: column; gap: 2px; padding-left: 0; }
   .facts .k { position: static; }
 }
