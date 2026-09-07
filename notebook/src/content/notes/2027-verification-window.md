@@ -3,7 +3,7 @@ id: P-001
 kind: position
 title: The 2027 verification window
 gloss: All 2026 embedded-emissions data must be verified between January and September 2027, by a pool that as of July 2026 contained no accredited CBAM verifier, with a physical site visit mandatory in the first year. On that arithmetic, readiness is a 2026 problem.
-abstract: Three published facts, read together, define the first verification cycle of the CBAM definitive regime. The first declaration deadline is fixed in law. The earliest possible start of verification is fixed by how emissions reports work. And the pool of people permitted to do the verifying is still being accredited. This note sets out the three facts and states the conclusion I draw from them.
+abstract: Three published facts, read together, define the first verification cycle of the CBAM definitive regime. The first declaration deadline is fixed in law. The earliest possible start of verification is fixed by how emissions reports work. And the pool of people permitted to do the verifying is still being accredited.
 created: 2026-07-02
 modified: 2026-09-07
 status: published
@@ -25,15 +25,13 @@ unverified:
   - The 403 verification bodies and 4,100 declarants figures are an expert-blog estimate and are attributed as such; they are not primary data.
 ---
 
-Three published facts, read together, define the first verification cycle of the CBAM definitive regime. The first declaration deadline is fixed in law. The earliest possible start of verification is fixed by how emissions reports work. And the pool of people permitted to do the verifying is still being accredited. This note sets out the three facts and states the conclusion I draw from them.
+Three published facts, read together, define the first verification cycle of the CBAM definitive regime. The first declaration deadline is fixed in law. The earliest possible start of verification is fixed by how emissions reports work. And the pool of people permitted to do the verifying is still being accredited.
 
 ## Nine months, fixed at both ends
 
 The far end is statutory. Under Regulation (EU) 2023/956 as amended by Regulation (EU) 2025/2083, the first annual CBAM declaration, covering 2026 imports, with a verification report attached and certificates surrendered, is due by **30 September 2027**.<sup class="sn-ref">1</sup><span class="sn" data-n="1">The Omnibus amendment (2025/2083) moved this from 31 May. The extension is already in the deadline.</span>
 
 The near end follows from the shape of the data. An annual emissions report can only be verified once the year it covers is complete. The German Emissions Trading Authority (DEHSt) confirmed the consequence in January 2026, in comments reported by Argus: no CBAM verification takes place in 2026, because only the complete, verified emissions report for the calendar year is valid. Verification of 2026 data therefore runs from **1 January 2027 to 30 September 2027**.
-
-Nine months, for the entire first-year workload of the regime.
 
 ## A verifier pool that is still being accredited
 
@@ -49,7 +47,6 @@ The compressed window would matter less if first-year verification were light. I
 
 So the nine months are not desk months. They are travel to third-country installations, scheduled against every other declarant's identical deadline, by a pool whose size will only become known in the months before the window opens.
 
-> A verifier arriving in January 2027 can check a year of records. No one can measure 2026 again.
 
 ## What follows for 2026
 
@@ -61,6 +58,3 @@ The alternative is the default values, at a 10% mark-up on country-average inten
 
 Nothing published between January and July 2026 widened the window. No accreditation had been granted; the declaration module of the CBAM registry had not opened as of DEHSt's March update; and the regime is extending rather than pausing, with the Council agreeing its position on 12 June 2026 to bring downstream steel and aluminium products into scope from 2028. The window stays nine months wide, and it is approached from one side only.
 
----
-
-Position as of July 2026, unchanged on review in September 2026. Statutory dates are cited from the acts listed under Sources. Pool and demand figures are attributed estimates, not official counts. This note states my reading of the published rules; it is not legal advice.

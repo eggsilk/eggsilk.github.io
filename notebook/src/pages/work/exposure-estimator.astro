@@ -1,18 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
-// Ported unchanged from the earlier site. Status: in revision. The preset
-// intensities and default values predate the late-2025 implementing acts and
-// have not cleared an accuracy pass; the page says so in three places.
 ---
-<Base title="CBAM exposure estimator" section="work" description="Indicative CBAM certificate cost on default values against verified data, calculation shown in full.">
-  <div class="crumb"><a href="/">Home</a><span>/</span><a href="/work/">Work</a><span>/</span><span>I-001</span></div>
-  <div class="kicker">Instrument · <span class="flag-rev">in revision</span></div>
-  <h1 style="margin-top:8px">CBAM exposure estimator</h1>
-  <p class="lede" style="margin-top:16px">The certificate cost charged on default values set against the cost carried by verified data, and the gap between the two. The calculation is shown in full and every input can be replaced with an installation's own figures.</p>
-  <p class="small quiet" style="margin-top:12px;max-width:60ch"><strong class="flag-rev">In revision.</strong> The preset intensities and the default values are placeholders from before Implementing Regulation (EU) 2025/2621 published the official tables. Use the tool for the shape of the calculation, not for the figures.</p>
+<Base title="CBAM exposure estimator" section="work" description="Indicative CBAM certificate cost on default values against verified data.">
+  <header class="head">
+    <h1>CBAM exposure estimator</h1>
+    <div class="line">27 June, 2026 · revised 7 September, 2026 · I-001, instrument · <span class="flag">in revision</span></div>
+  </header>
+  <p>Certificate cost on default values against the cost on verified data, for one import volume. Preset intensities and default values predate the tables in Implementing Regulation (EU) 2025/2621; use the calculation, not the figures.</p>
 
   <div class="calc">
-    <div class="calc-inputs">
+    <div>
       <div class="field">
         <label for="good">Good</label>
         <select id="good">
@@ -24,7 +21,7 @@ import Base from '../../layouts/Base.astro';
         </select>
       </div>
       <div class="field">
-        <label for="vol">Annual volume into the EU (tonnes)</label>
+        <label for="vol">Annual volume into the EU, tonnes</label>
         <input id="vol" type="number" min="0" step="100" value="10000" />
       </div>
       <div class="field">
@@ -40,43 +37,25 @@ import Base from '../../layouts/Base.astro';
       <div class="field">
         <label for="defint">Default intensity, tCO₂e/t (placeholder)</label>
         <input id="defint" type="number" min="0" step="0.01" value="1.55" />
-        <div class="hint">Applied where verified data cannot be shown, plus the annual mark-up.</div>
       </div>
       <div class="field">
-        <label for="actint">Verified intensity, tCO₂e/t</label>
+        <label for="actint">Verified intensity, tCO₂e/t (placeholder)</label>
         <input id="actint" type="number" min="0" step="0.01" value="0.88" />
-        <div class="hint">Sector-typical placeholder. Replace with the installation's own figure.</div>
       </div>
       <div class="field">
-        <label for="price">Certificate price (€/tCO₂)</label>
+        <label for="price">Certificate price, €/tCO₂ (Q1 2026)</label>
         <input id="price" type="number" min="0" step="0.01" value="75.36" />
-        <div class="hint">The published CBAM certificate price for Q1 2026. Editable.</div>
       </div>
     </div>
-    <div class="calc-output">
-      <div class="out-block">
-        <div class="ol">Cost on default values</div>
-        <div class="ov" id="o-default"></div>
-        <div class="os" id="o-default-s"></div>
-      </div>
-      <div class="out-block">
-        <div class="ol">Cost with verified data</div>
-        <div class="ov" id="o-actual"></div>
-      </div>
-      <div class="out-block">
-        <div class="ol">Difference, if verified data is accepted</div>
-        <div class="ov save-v" id="o-save"></div>
-        <div class="os" id="o-save-s"></div>
-      </div>
-      <div class="calc-math mono" id="math"></div>
+    <div>
+      <div class="out"><div class="ol">On default values</div><div class="ov" id="o-default"></div><div class="os" id="o-default-s"></div></div>
+      <div class="out"><div class="ol">On verified data</div><div class="ov" id="o-actual"></div></div>
+      <div class="out"><div class="ol">Difference</div><div class="ov" id="o-save"></div><div class="os" id="o-save-s"></div></div>
+      <div class="calc-math" id="math"></div>
     </div>
   </div>
 
-  <div class="caveat">
-    <p><strong>Basis and limits.</strong> The figure is indicative. It is not legal, tax or financial advice. Any decision should be checked against Regulation (EU) 2023/956 and Implementing Regulation (EU) 2025/2621.</p>
-    <p>The default and intensity values are sector-typical placeholders. Official CBAM default values are country- and product-specific and are updated by the Commission; the figures here lag the official tables.</p>
-    <p>The certificate price varies, quarterly in 2026 and weekly from 2027, while the estimate uses one fixed price. The estimate assumes no carbon price paid in the country of origin. A lower figure requires emissions data that is verified and accepted under CBAM; unverified actuals cannot be used, and the default plus mark-up applies instead. For iron and steel, aluminium and hydrogen only direct emissions carry a certificate obligation in the definitive period, so preset intensities that include indirect emissions overstate the chargeable figure for those goods.</p>
-  </div>
+  <p class="muted">Indicative. One fixed certificate price, where the real price moves quarterly in 2026 and weekly from 2027. No carbon price paid in the country of origin. Unverified actuals cannot be used under CBAM, so the default plus mark-up applies to them. For iron and steel, aluminium and hydrogen only direct emissions carry a certificate obligation, so presets that include indirect emissions overstate the figure.</p>
 
   <script is:inline>
     var FACTOR={2026:.025,2027:.05,2028:.10,2029:.225,2030:.485,2031:.61,2032:.735,2033:.86,2034:1};
@@ -93,10 +72,10 @@ import Base from '../../layouts/Base.astro';
       $('o-default').textContent=eur.format(defCost);
       $('o-actual').textContent=eur.format(actCost);
       $('o-save').textContent=eur.format(save);
-      $('factorhint').textContent='Phase-in factor '+(f*100).toFixed(1)+'% · default mark-up +'+(m*100)+'%';
-      $('o-default-s').textContent='= '+di+' × '+(1+m).toFixed(2)+' mark-up = '+diM.toFixed(2)+' tCO₂e/t effective';
+      $('factorhint').textContent='Phase-in factor '+(f*100).toFixed(1)+'%, default mark-up +'+(m*100)+'%';
+      $('o-default-s').textContent=di+' × '+(1+m).toFixed(2)+' = '+diM.toFixed(2)+' tCO₂e/t effective';
       var pct=defCost>0?Math.round(save/defCost*100):0;
-      $('o-save-s').textContent=pct+'% of the default-value cost, if verified data is accepted';
+      $('o-save-s').textContent=pct+'% of the default-value cost';
       $('math').textContent='default   '+diM.toFixed(2)+' × '+vol.toLocaleString()+' t × '+(f*100).toFixed(1)+'% × €'+pr+'\nverified  '+ai.toFixed(2)+' × '+vol.toLocaleString()+' t × '+(f*100).toFixed(1)+'% × €'+pr;
     }
     $('good').addEventListener('change',function(){preset();calc();});

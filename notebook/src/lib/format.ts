@@ -1,41 +1,35 @@
-export function fmtDate(d: Date): string {
-  // ISO date, always. Absolute dates only; relative dates hide staleness.
-  return d.toISOString().slice(0, 10);
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+export function fmtShort(d: Date): string {
+  // dd/mm, as in the lists
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  return `${dd}/${mm}`;
+}
+
+export function fmtLong(d: Date): string {
+  // 3 July, 2026, as on a page
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}, ${d.getUTCFullYear()}`;
 }
 
 export function statusLabel(s: string): string {
   switch (s) {
-    case 'draft': return 'draft';
-    case 'published': return 'published';
     case 'in-revision': return 'in revision';
-    case 'superseded': return 'superseded';
     case 'in-development': return 'in development';
     default: return s;
   }
 }
 
-export function statusClass(s: string): string {
-  switch (s) {
-    case 'draft': return 'flag-draft';
-    case 'published': return 'flag-pub';
-    case 'in-revision': return 'flag-rev';
-    case 'in-development': return 'flag-draft';
-    case 'superseded': return 'flag-sup';
-    default: return '';
-  }
-}
-
-export function confidenceLabel(c?: string): string {
-  switch (c) {
-    case 'certain': return 'certain';
-    case 'highly-likely': return 'highly likely';
-    case 'likely': return 'likely';
-    case 'possible': return 'possible';
-    case 'speculative': return 'speculative';
-    default: return '';
-  }
-}
-
 export function byNewest<T extends { data: { created: Date } }>(a: T, b: T): number {
   return b.data.created.getTime() - a.data.created.getTime();
+}
+
+export function withYearFlags<T extends { data: { created: Date } }>(items: T[]): { item: T; showYear: boolean }[] {
+  let last = -1;
+  return items.map((item) => {
+    const y = item.data.created.getUTCFullYear();
+    const showYear = y !== last;
+    last = y;
+    return { item, showYear };
+  });
 }

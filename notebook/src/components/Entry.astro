@@ -1,50 +1,30 @@
 ---
-// One row of the index: the citation-record grammar.
-// id + date in a mono margin column; title; gloss; collapsible abstract;
-// a row of small artefact links; status.
-import { fmtDate, statusLabel, statusClass } from '../lib/format';
+// One row: year (first row of its year only) | title [status] | dd/mm
+import { fmtShort, statusLabel } from '../lib/format';
 
 interface Props {
-  id: string;
-  kind: string;
   title: string;
-  href?: string;           // absent = unlinked (draft, not yet published)
-  gloss: string;
-  abstract?: string;
+  href?: string;
   created: Date;
-  modified?: Date;
   status: string;
-  pdf?: string;
-  sourcesCount?: number;
+  showYear: boolean;
 }
-const { id, kind, title, href, gloss, abstract, created, modified, status, pdf, sourcesCount = 0 } = Astro.props;
-const citable = ['finding', 'position', 'explainer'].includes(kind);
-const kindLabel: Record<string, string> = {
-  finding: 'Finding', position: 'Position', explainer: 'Explainer', instrument: 'Instrument', method: 'Method',
-};
+const { title, href, created, status, showYear } = Astro.props;
+const flag = status === 'published' ? null : statusLabel(status);
+const loud = status === 'draft' || status === 'in-revision';
 ---
-<article class="entry">
-  <div class="col-meta">
-    <span class="id">{id}</span>
-    <span class="date">{fmtDate(created)}</span>
-  </div>
-  <div>
-    {href
-      ? <div class="title"><a href={href}>{title}</a></div>
-      : <div class="title unlinked">{title}</div>}
-    <p class="gloss">{gloss}</p>
-    {abstract && (
-      <details>
-        <summary>Abstract</summary>
-        <p>{abstract}</p>
-      </details>
-    )}
-    <div class="links">
-      <span class="status">{kindLabel[kind] ?? kind} · <span class={statusClass(status)}>{statusLabel(status)}</span>{modified && <span class="faint"> · modified {fmtDate(modified)}</span>}</span>
-      {href && (<><span class="sep">·</span><a href={href}>Read</a></>)}
-      {href && sourcesCount > 0 && (<><span class="sep">·</span><a href={`${href}#sources`}>Sources ({sourcesCount})</a></>)}
-      {href && citable && (<><span class="sep">·</span><a href={`${href}#cite`}>Cite</a></>)}
-      {pdf && (<><span class="sep">·</span><a href={pdf}>PDF</a></>)}
+<li>
+  {href ? (
+    <a href={href}>
+      {showYear && <span class="yr">{created.getUTCFullYear()}</span>}
+      <span class="t">{title}{flag && <span class={loud ? 'flag' : 'flag-quiet'}>{flag}</span>}</span>
+      <time datetime={created.toISOString().slice(0, 10)}>{fmtShort(created)}</time>
+    </a>
+  ) : (
+    <div class="row unlinked">
+      {showYear && <span class="yr">{created.getUTCFullYear()}</span>}
+      <span class="t">{title}{flag && <span class={loud ? 'flag' : 'flag-quiet'}>{flag}</span>}</span>
+      <time datetime={created.toISOString().slice(0, 10)}>{fmtShort(created)}</time>
     </div>
-  </div>
-</article>
+  )}
+</li>

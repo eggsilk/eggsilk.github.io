@@ -2,36 +2,15 @@
 import Base from '../../layouts/Base.astro';
 import Entry from '../../components/Entry.astro';
 import { getCollection } from 'astro:content';
-import { byNewest } from '../../lib/format';
+import { byNewest, withYearFlags } from '../../lib/format';
 
-const all = (await getCollection('notes')).sort(byNewest);
-const counts = {
-  finding: all.filter((n) => n.data.kind === 'finding').length,
-  position: all.filter((n) => n.data.kind === 'position').length,
-  explainer: all.filter((n) => n.data.kind === 'explainer').length,
-};
-const years = [...new Set(all.map((n) => n.data.created.getUTCFullYear()))].sort((a, b) => b - a);
+const notes = (await getCollection('notes')).sort(byNewest);
 ---
-<Base title="Notes" section="notes" description="Dated, numbered notes on CBAM and EU ETS monitoring, reporting and verification: findings, positions and explainers.">
-  <h1 class="big">Notes</h1>
-  <p class="lede" style="margin-top:16px">Three kinds of entry. A <strong>finding</strong> works one question to a resolution. A <strong>position</strong> states my reading of a live rule as of its date. An <strong>explainer</strong> sets out a method. Each carries its sources and a status; superseded entries stay up and say so.</p>
-  <p class="mono small quiet" style="margin-top:14px">Findings {counts.finding} · Positions {counts.position} · Explainers {counts.explainer}</p>
-
-  <section class="index">
-    <div class="index-head"><span>All entries</span><span>newest first</span></div>
-    {years.map((y) => (
-      <>
-        <div class="year">{y}</div>
-        {all.filter((n) => n.data.created.getUTCFullYear() === y).map((n) => (
-          <Entry id={n.data.id} kind={n.data.kind} title={n.data.title}
-            href={n.data.draft ? undefined : `/notes/${n.id}/`}
-            gloss={n.data.gloss} abstract={n.data.abstract}
-            created={n.data.created} modified={n.data.modified} status={n.data.status}
-            sourcesCount={n.data.sources.length} pdf={n.data.pdf} />
-        ))}
-      </>
+<Base title="Notes" section="notes" description="Notes on CBAM and EU ETS monitoring, reporting and verification.">
+  <h3>Notes</h3>
+  <ul class="list">
+    {withYearFlags(notes).map(({ item, showYear }) => (
+      <Entry title={item.data.title} href={item.data.draft ? undefined : `/notes/${item.id}/`} created={item.data.created} status={item.data.status} showYear={showYear} />
     ))}
-  </section>
-
-  <p class="small quiet" style="margin-top:28px;max-width:60ch">Notes describe method and the published rules. None describes a client engagement. Citations are to the consolidated regulations and the named EN and ISO standards; where a clause number is still owed an accuracy pass, the note says so.</p>
+  </ul>
 </Base>

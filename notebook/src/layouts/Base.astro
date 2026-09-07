@@ -1,17 +1,14 @@
 ---
 import '../styles/global.css';
-import Seam from '../components/Seam.astro';
 
 interface Props {
   title: string;
   description?: string;
-  section?: 'home' | 'notes' | 'work' | 'about';
-  pageClass?: string;
+  section?: 'home' | 'notes' | 'work' | 'about' | 'none';
 }
-const { title, description, section, pageClass = '' } = Astro.props;
+const { title, description, section = 'none' } = Astro.props;
 const fullTitle = section === 'home' ? 'Ege Ipek' : `${title} · Ege Ipek`;
 const nav = [
-  { href: '/', label: 'Home', key: 'home' },
   { href: '/notes/', label: 'Notes', key: 'notes' },
   { href: '/work/', label: 'Work', key: 'work' },
   { href: '/about/', label: 'About', key: 'about' },
@@ -27,29 +24,24 @@ const nav = [
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="alternate" type="application/rss+xml" title="Ege Ipek, notes" href="/feed.xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="alternate" type="application/rss+xml" title="Ege Ipek" href="/feed.xml" />
 </head>
 <body>
-  <div class={`page ${pageClass}`}>
-    <header class="mast">
-      <a class="name" href="/"><Seam />Ege Ipek</a>
-      <nav aria-label="Sections">
-        {nav.map((n) => (
-          <a href={n.href} aria-current={section === n.key ? 'page' : undefined}>{n.label}</a>
-        ))}
-      </nav>
-    </header>
+  <div class="page">
+    {section !== 'home' && (
+      <div class="top">
+        <a href="/">Ege Ipek</a>
+        <nav>
+          {nav.map((n) => <a href={n.href} aria-current={section === n.key ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
+      </div>
+    )}
 
     <slot />
 
     <footer>
-      <div class="who">
-        I audit emissions data under the EU ETS and CBAM. Verification opinions are issued by the accredited body I work through, not by me. The views here are mine and speak for none of the organisations I work with.
-      </div>
-      <div class="legal">
-        <a href="/impressum/">Impressum</a> · <a href="mailto:mail@example.com">mail@example.com</a>
-      </div>
+      <a href="/impressum/">Impressum</a>
     </footer>
   </div>
 </body>

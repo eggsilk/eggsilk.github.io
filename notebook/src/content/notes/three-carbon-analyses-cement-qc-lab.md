@@ -25,7 +25,7 @@ unverified:
 
 A modern cement plant already owns most of the instruments that emissions monitoring requires. X-ray fluorescence (XRF) reads oxide chemistry, X-ray diffraction (XRD) resolves clinker phases, a bomb calorimeter fixes fuel calorific value, weigh feeders and a weighbridge track mass flows, and the laboratory runs loss-on-ignition and free lime. That kit exists to control *product* (clinker chemistry, cement strength) and *fuel value* (calories). Closing a *carbon* balance was never its purpose.
 
-Three numbers decide a CBAM-grade emissions figure, and a plant's quality-control routine produces none of them directly. The first is the **biogenic fraction** of the fuel mix. The second is the **non-carbonate (organic) carbon** in the raw meal. The third is the **degree of calcination of the dust that leaves the kiln**. These are carbon-specific analyses that fall outside the quality-control routine. This note sets out each, together with the point where the real uncertainty sits.
+Three numbers decide a CBAM-grade emissions figure, and a plant's quality-control routine produces none of them directly. The first is the **biogenic fraction** of the fuel mix. The second is the **non-carbonate (organic) carbon** in the raw meal. The third is the **degree of calcination of the dust that leaves the kiln**.
 
 ## 1. Biogenic fraction of the fuel mix
 
@@ -45,7 +45,6 @@ Calcination is the reaction the whole figure turns on: CaCO₃ → CaO + CO₂ (
 
 The complication is the dust. Cement kiln dust and alkali-bypass dust leave the system already partly to fully calcined. That CO₂ is real, but the dust never becomes product, so an output-based calculation misses it. The MRR adds it back as a separate source, with a dust emission factor `EF_CKD = EF_Cli × d`, where *d* is the degree of calcination, the fraction of the raw meal's carbonate CO₂ already released. In practice *d* follows from paired loss-on-ignition measurements on the fresh raw meal and on the dust. Substituting a default for a measured *d* introduces a systematic bias. The paired LOI on the bleed stream is an emissions-accounting measurement rather than a QC routine, even though the plant lab can run LOI.
 
-> The instruments report on product and fuel. They do not close a carbon balance. Three added analyses do.
 
 ## Where the uncertainty actually sits
 
@@ -58,6 +57,3 @@ The MRR sets the permitted uncertainty on activity data by tier: ±7.5%, ±5%, �
 
 A tier-compliant determination decomposes total emissions into independently quantified terms: calcination, dust calcination, organic carbon, and biogenic correction. Each term carries its own tier and uncertainty, and the determination then propagates them. The competence lies in knowing which term carries the variance and directing the metrological effort there, well short of metering everything to ±1.5%.
 
----
-
-Standards and methods are cited as they stand in the consolidated MRR and the named EN and ISO standards. Clause numbers still owed an accuracy pass are listed below. This note describes method, not a completed engagement.

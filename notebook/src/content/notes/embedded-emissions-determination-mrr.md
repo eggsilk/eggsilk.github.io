@@ -21,7 +21,7 @@ unverified:
 
 An importer using actual values under CBAM stands on a determination made at the installation to the EU Monitoring and Reporting Regulation.<sup class="sn-ref">1</sup><span class="sn" data-n="1">Reg. (EU) 2018/2066, the MRR. It predates CBAM and is the rulebook the EU Emissions Trading System already runs on.</span> The CBAM implementing rules for actual values point back to the same monitoring logic. Understanding that logic is the difference between a figure a verifier can accept and a number that reads as an estimate.
 
-The determination proceeds in four moves. Split the installation into source streams. Choose a method for each. Meter and analyse each to a required tier. Then sum the terms and carry the uncertainty. This note walks the four, and closes on where a cement determination is won or lost.
+The determination proceeds in four moves. Split the installation into source streams. Choose a method for each. Meter and analyse each to a required tier. Then sum the terms and carry the uncertainty.
 
 ## 1. The installation becomes source streams
 
@@ -41,7 +41,6 @@ A method is only as good as the precision of what feeds it, and the MRR makes th
 
 The required tier is not chosen for convenience. It rises with the installation's emissions category, so a large emitter is held to tighter tolerances on its main streams than a small one. A determination therefore has to show two things at once: that each stream is metered and analysed to a stated tier, and that the stated tier meets the one the regulation requires for a stream of that size. A figure quoted without its tier is a figure a verifier cannot place.
 
-> The regulation never asks for a number on its own. It asks for a number, its method, its tier, and its uncertainty, together.
 
 ## 4. The terms are summed, and the uncertainty is carried
 
@@ -56,8 +55,5 @@ Cement is where these moves become concrete, because clinker production is domin
 - **Fuel combustion, net of biomass.** The burn's fossil CO₂, with the biogenic fraction of the fuel zero-rated. The emission factor of qualifying biomass is zero (Articles 38 and 39), so a co-processed fuel is reported at its fossil fraction. Every point of biogenic carbon that goes undemonstrated is fossil CO₂ reported by default.
 - **Non-carbonate carbon.** The organic carbon held in some limestones and marls oxidises to CO₂ on heating, yet it is neither a metered fuel nor a carbonate, so both standard routes miss it unless it is added as an explicit process term.
 
-Three of those four terms depend on carbon-specific analyses a cement plant's quality-control laboratory does not run: the biogenic fraction, the non-carbonate carbon, and the dust's calcination degree. Which analyses close them, and where each standard sits, is the subject of F-001.
+Three of those four terms depend on carbon-specific analyses a cement plant's quality-control laboratory does not run: the biogenic fraction, the non-carbonate carbon, and the dust's calcination degree. The analyses that close them are in F-001.
 
----
-
-Article, annex and factor references are cited as they stand in the consolidated MRR. Clause numbers still owed an accuracy pass are listed below. This note describes method, not a completed engagement.
