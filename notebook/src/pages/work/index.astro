@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import Entry from '../../components/Entry.astro';
+import { getCollection } from 'astro:content';
+import { byNewest } from '../../lib/format';
+
+const all = (await getCollection('work')).sort(byNewest);
+---
+<Base title="Work" section="work" description="Instruments and method pieces built for my own scoping of CBAM and EU ETS monitoring data, published as they are.">
+  <h1 class="big">Work</h1>
+  <p class="lede" style="margin-top:16px">Instruments I built for my own scoping, and method pieces that set out how a determination is done. Each is published as it stands, with its status. None is a record of a client engagement.</p>
+
+  <section class="index">
+    <div class="index-head"><span>All items</span><span>newest first</span></div>
+    {all.map((w) => (
+      <Entry id={w.data.id} kind={w.data.kind} title={w.data.title} href={w.data.href} gloss={w.data.gloss}
+        created={w.data.created} modified={w.data.modified} status={w.data.status} />
+    ))}
+  </section>
+</Base>

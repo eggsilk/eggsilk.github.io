@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import Meta from '../../components/Meta.astro';
+import { getCollection, render } from 'astro:content';
+import { fmtDate } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.filter((n) => !n.data.draft).map((n) => ({ params: { slug: n.id }, props: { note: n } }));
+}
+const { note } = Astro.props;
+const { Content } = await render(note);
+const d = note.data;
+const kindLabel: Record<string, string> = { finding: 'Finding', position: 'Position', explainer: 'Explainer' };
+const url = new URL(`/notes/${note.id}/`, Astro.site).toString();
+const year = d.created.getUTCFullYear();
+
+const allNotes = await getCollection('notes');
+const related = d.related.map((slug) => allNotes.find((n) => n.id === slug)).filter(Boolean);
+---
+<Base title={d.title} section="notes" pageClass="note" description={d.gloss}>
+  <div class="crumb"><a href="/">Home</a><span>/</span><a href="/notes/">Notes</a><span>/</span><span>{d.id}</span></div>
+
+  <header class="note-head">
+    <div class="kicker">{kindLabel[d.kind]}{d.topics.length ? ` · ${d.topics[0]}` : ''}</div>
+    <h1>{d.title}</h1>
+    {d.abstract && <p class="lede">{d.abstract}</p>}
+    <Meta id={d.id} kind={d.kind} created={d.created} modified={d.modified} status={d.status} confidence={d.confidence} topics={d.topics} />
+  </header>
+
+  <div class="prose">
+    <Content />
+  </div>
+
+  {d.unverified.length > 0 && (
+    <aside class="unverified">
+      <span class="kicker">Still owed an accuracy pass</span>
+      <ul>{d.unverified.map((u) => <li>{u}</li>)}</ul>
+    </aside>
+  )}
+
+  {d.sources.length > 0 && (
+    <section class="sources" id="sources">
+      <h2>Sources</h2>
+      <ol>
+        {d.sources.map((s) => <li>{s.href ? <a href={s.href}>{s.label}</a> : s.label}</li>)}
+      </ol>
+    </section>
+  )}
+
+  {related.length > 0 && (
+    <div class="related">
+      <span class="kicker">Related</span>
+      {related.map((r) => <div><a href={`/notes/${r!.id}/`}>{r!.data.id} · {r!.data.title}</a></div>)}
+    </div>
+  )}
+
+  <div class="cite" id="cite">
+    <span class="kicker">Cite this note</span>
+    Ipek, E. ({year}). {d.title}. Note {d.id}, working notebook. Created {fmtDate(d.created)}{d.modified ? `, modified ${fmtDate(d.modified)}` : ''}. {url}
+  </div>
+</Base>

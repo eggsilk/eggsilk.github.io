@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ege Ipek — working notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBF9F4;
+    --ink: #1F2328;
+    --muted: #6B7280;
+    --faint: #9AA0A6;
+    --rule: #E3DFD5;
+    --accent: #9C6F1C;
+    --draft: #8A6D1F;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 72px 24px 96px; }
+
+  /* Masthead */
+  .mast { margin-bottom: 12px; }
+  .name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 40px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .descriptor {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .meta-line {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .meta-line a { color: var(--muted); text-underline-offset: 3px; }
+  .meta-line a:hover { color: var(--ink); }
+
+  .intro {
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid var(--rule);
+    max-width: 60ch;
+    color: var(--ink);
+  }
+  .intro p + p { margin-top: 10px; }
+  .intro .quiet { color: var(--muted); }
+
+  /* Series nav */
+  .series-nav {
+    margin-top: 40px;
+    display: flex;
+    gap: 28px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .series-nav a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+  }
+  .series-nav a:hover { border-color: var(--ink); }
+  .series-nav .count { color: var(--faint); margin-left: 4px; }
+
+  /* Index */
+  .index { margin-top: 56px; }
+  .index-head {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: 96px 64px 1fr;
+    gap: 18px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .entry .date, .entry .id {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .entry .id { color: var(--ink); font-weight: 500; }
+  .entry .title {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .entry .title a { color: var(--ink); text-decoration: none; }
+  .entry .title a:hover { color: var(--accent); }
+  .entry .abstract {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 56ch;
+  }
+  .entry .status {
+    margin-top: 7px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--faint);
+  }
+  .entry .status .flag { color: var(--draft); }
+  .entry .status .pub { color: #3E6B4F; }
+
+  /* Footer */
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ink);
+    font-size: 13.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  footer .who { max-width: 46ch; }
+  footer .legal { font-family: var(--mono); font-size: 12px; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 560px) {
+    .entry { grid-template-columns: 1fr; gap: 4px; }
+    .name { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <div class="name">Ege Ipek</div>
+    <div class="descriptor">Carbon measurement, reporting &amp; verification — a working notebook.</div>
+    <div class="meta-line">Berlin · freelance emissions auditor (EU&nbsp;ETS / CBAM) · <a href="#">mail@egeipek.com</a></div>
+  </header>
+
+  <section class="intro">
+    <p>I audit emissions data. This site is the notebook of that practice: questions from the CBAM and EU&nbsp;ETS regimes worked through to a resolution, the instruments I use, and notes on building the practice itself.</p>
+    <p class="quiet">Everything here is dated, numbered, and cited so it can be checked. Entries carry their status honestly — drafts say draft.</p>
+  </section>
+
+  <nav class="series-nav">
+    <a href="#">Findings<span class="count">2</span></a>
+    <a href="#">Instruments<span class="count">1</span></a>
+    <a href="#">Blog<span class="count">0</span></a>
+  </nav>
+
+  <section class="index">
+    <div class="index-head"><span>Index — all entries</span><span>newest first</span></div>
+
+    <article class="entry">
+      <span class="date">2026-09-01</span>
+      <span class="id">F-002</span>
+      <div>
+        <div class="title"><a href="notebook-finding.html">Is CO₂ bound in urea deductible from embedded emissions?</a></div>
+        <div class="abstract">Under the definitive-period rules the deduction for carbon bound in products does not extend to urea; the annex admits only mineral carbonates. Worked from the 2025 acts.</div>
+        <div class="status">Finding · <span class="flag">draft — citation pass pending</span></div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <span class="date">2026-06-29</span>
+      <span class="id">F-001</span>
+      <div>
+        <div class="title"><a href="#">The instrument gap: three carbon analyses a cement QC lab does not run</a></div>
+        <div class="abstract">XRF, XRD and a calorimeter give clinker quality but not biogenic fraction, organic carbon, or dust calcination — the three determinations monitoring actually needs, and their standards.</div>
+        <div class="status">Finding · <span class="pub">published</span></div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <span class="date">2026-06-27</span>
+      <span class="id">I-001</span>
+      <div>
+        <div class="title"><a href="#">CBAM exposure estimator</a></div>
+        <div class="abstract">Order-of-magnitude certificate cost for an import volume, from default values. Built for my own scoping.</div>
+        <div class="status">Instrument · <span class="flag">in revision — figures predate the late-2025 implementing acts</span></div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <span class="date">—</span>
+      <span class="id">B-001</span>
+      <div>
+        <div class="title" style="color: var(--faint); font-style: italic;">First blog entry forthcoming</div>
+        <div class="status">Blog</div>
+      </div>
+    </article>
+
+  </section>
+
+  <footer>
+    <div class="who">
+      Ege Ipek. I work as a freelance auditor of emissions data under the EU&nbsp;ETS and CBAM regimes, within the pool of an accredited verification body. Previously: project-level carbon MRV. I prepare and examine emissions data; verification opinions are issued by accredited verifiers.
+    </div>
+    <div class="legal">
+      <a href="#">Impressum</a> · <a href="#">mail@egeipek.com</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

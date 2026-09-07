@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Entry from '../components/Entry.astro';
+import { getCollection } from 'astro:content';
+import { byNewest } from '../lib/format';
+
+const notes = (await getCollection('notes')).filter((n) => !n.data.draft);
+const work = (await getCollection('work')).filter((w) => !w.data.draft);
+
+type Row = {
+  id: string; kind: string; title: string; href?: string; gloss: string; abstract?: string;
+  created: Date; modified?: Date; status: string; sourcesCount: number; pdf?: string;
+};
+const rows: Row[] = [
+  ...notes.map((n) => ({
+    id: n.data.id, kind: n.data.kind, title: n.data.title, href: `/notes/${n.id}/`, gloss: n.data.gloss,
+    abstract: n.data.abstract, created: n.data.created, modified: n.data.modified, status: n.data.status,
+    sourcesCount: n.data.sources.length, pdf: n.data.pdf,
+  })),
+  ...work.map((w) => ({
+    id: w.data.id, kind: w.data.kind, title: w.data.title, href: w.data.href, gloss: w.data.gloss,
+    created: w.data.created, modified: w.data.modified, status: w.data.status, sourcesCount: 0,
+  })),
+].sort((a, b) => b.created.getTime() - a.created.getTime()).slice(0, 5);
+
+const NOW_DATE = '2026-09-07';
+---
+<Base title="Ege Ipek" section="home" description="Working notebook of Ege Ipek, auditor of emissions data under the EU ETS and CBAM. Findings, positions and instruments, dated and cited.">
+  <section class="intro">
+    <h1 class="descriptor">Auditor of emissions data under the EU ETS and CBAM.</h1>
+    <div class="meta-line">Berlin · freelance verifier and consultant · <a href="mailto:mail@example.com">mail@example.com</a></div>
+    <p class="body">I audit emissions data. This site is the working record of that practice: questions from the CBAM and EU ETS rules worked to a resolution, and the instruments I built to scope them. Each entry carries a date, a status and its sources, so a claim can be checked against the text it rests on. Drafts say draft.</p>
+  </section>
+
+  <section class="cols">
+    <div>
+      <h3>Contact</h3>
+      <p><a href="mailto:mail@example.com">mail@example.com</a></p>
+      <p>Berlin. Working languages Turkish, English and French.</p>
+      <p><a href="/feed.xml">RSS feed</a> of new entries.</p>
+    </div>
+    <div>
+      <h3>Now</h3>
+      <ul>
+        <li>Preparing for the 2027 EU ETS verification season.</li>
+        <li>Building a gap-assessment method for CBAM supplier communication templates.</li>
+        <li>Running a blind verification exercise on a fabricated urea evidence pack.</li>
+      </ul>
+      <div class="stamp">Last updated {NOW_DATE}</div>
+    </div>
+    <div>
+      <h3>Standing invitation</h3>
+      <p>If you prepare, verify or model embedded-emissions data and disagree with a note here, write to me. I read everything and answer most of it.</p>
+    </div>
+  </section>
+
+  <section class="index">
+    <div class="index-head"><span>Latest entries</span><a href="/notes/" style="text-decoration:none;color:inherit">All notes &rarr;</a></div>
+    {rows.map((r) => (
+      <Entry id={r.id} kind={r.kind} title={r.title} href={r.href} gloss={r.gloss} abstract={r.abstract}
+        created={r.created} modified={r.modified} status={r.status} sourcesCount={r.sourcesCount} pdf={r.pdf} />
+    ))}
+  </section>
+</Base>

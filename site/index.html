@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strata · CBAM MRV engineering</title>
+<meta name="description" content="Strata prepares CBAM embedded-emissions data to the EU Monitoring and Reporting Regulation, determined at the source-stream level, documented to tier requirements, ready for independent verification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <a class="mark" href="index.html"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+  <button class="nav-toggle" aria-label="Menu" aria-controls="nav" aria-expanded="false" onclick="var o=document.getElementById('nav').classList.toggle('open');this.setAttribute('aria-expanded',o)">≡</button>
+  <div class="nav-links" id="nav">
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="regime.html">CBAM regime</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="about.html#contact">Get in touch</a>
+  </div>
+</div></nav>
+
+<header class="hero hero-tall">
+  <canvas class="atmo-mesh" aria-hidden="true"></canvas>
+  <div class="ghost" aria-hidden="true">strata</div>
+  <canvas class="atmo-mass" aria-hidden="true"></canvas>
+  <svg class="atmo-grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><filter id="atmo-noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0"/></filter><rect width="100%" height="100%" filter="url(#atmo-noise)"/></svg>
+  <div class="scrim"></div>
+  <div class="wrap hero-in">
+    <h1 class="display" style="max-width:none;white-space:nowrap;font-size:clamp(30px,7vw,66px)">CBAM MRV engineering.</h1>
+    <p class="hero-sub">Strata is a measurement and MRV engineering practice for industrial producers exposed to the EU Carbon Border Adjustment Mechanism.</p>
+  </div>
+  <div class="scrollcue"><span>Explore</span><span class="bar"></span></div>
+</header>
+
+<section class="section">
+  <div class="narrow">
+    <div class="index" style="border-top:1px solid var(--ink)">
+      <a class="idx-row" href="services.html">
+        <span class="no">01</span>
+        <span class="t">Services<span>Strata prepares an installation's embedded-emissions data across four deliverables: the monitoring plan, the measurement campaign, the emissions determination, and the verification dossier.</span></span>
+        <span class="go">&rarr;</span>
+      </a>
+      <a class="idx-row" href="research.html">
+        <span class="no">02</span>
+        <span class="t">Research<span>Working notes in which the practice sets out its method and reads the CBAM regime as the rules are published.</span></span>
+        <span class="go">&rarr;</span>
+      </a>
+      <a class="idx-row" href="regime.html">
+        <span class="no">03</span>
+        <span class="t">CBAM regime<span>A working reference to the definitive regime. It covers the dates, the 2025 implementing acts, and how default values are set.</span></span>
+        <span class="go">&rarr;</span>
+      </a>
+      <a class="idx-row" href="about.html">
+        <span class="no">04</span>
+        <span class="t">About<span>Strata is a preparer of emissions data, not an accredited verifier. The practice, its boundary, and the standards the work is held to.</span></span>
+        <span class="go">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="narrow">
+    <h2 class="sec-h">Notes and tools</h2>
+    <div class="cat">
+      <a class="row" href="note-carbon-analyses.html">
+        <div class="meta"><span class="ty">Technical note</span><span class="dt">2026 &middot; 06</span></div>
+        <div class="rtitle">The three carbon analyses a cement plant's QC lab does not produce</div>
+        <p class="rab">XRF, XRD, and calorimetry control product and fuel value. None of them yields the biogenic fraction, the non-carbonate carbon, or the calcination degree of the dust that leaves the kiln. The note locates where the real uncertainty sits and names the standards that close it.</p>
+        <span class="rcta">Read the note &rarr;</span>
+      </a>
+      <a class="row" href="exposure.html">
+        <div class="meta"><span class="ty">Tool</span><span class="dt">Indicative</span></div>
+        <div class="rtitle">Exposure estimator</div>
+        <p class="rab">The CBAM cost charged on default values set against the cost carried by verified data, and the gap between the two. The calculation is shown in full, and every input can be replaced with an installation's own figures.</p>
+        <span class="rcta">Open the estimator &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-col">
+        <a class="mark" href="index.html" style="margin-bottom:14px"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+        <p class="foot-about">Embedded-emissions measurement and MRV engineering. We prepare installation data to the EU monitoring rules, ready for independent verification.</p>
+      </div>
+      <div class="foot-col"><h4>Navigate</h4>
+        <a href="services.html">Services</a><a href="research.html">Research</a><a href="regime.html">CBAM regime</a><a href="about.html">About</a></div>
+      <div class="foot-col"><h4>Contact</h4>
+        <a href="about.html#contact">Get in touch</a><a href="mailto:hello@example.com">hello@example.com</a>
+        <span class="foot-about" style="display:block;margin-top:6px">Berlin</span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Strata (working name). A newly established practice.</span>
+      <span class="mono">Preparer of emissions data &middot; not an accredited verifier</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var c=document.querySelector('.atmo-mass'); if(!c) return;
+  var ctx=c.getContext('2d'); var host=c.parentElement;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var cores=[
+    {bx:.44,by:.80,rr:.62,deep:.64,mid:.34,px:0.0,py:1.1,dx:20,dy:10},
+    {bx:.68,by:.85,rr:.55,deep:.56,mid:.30,px:2.1,py:3.0,dx:16,dy:8},
+    {bx:.20,by:.90,rr:.50,deep:.50,mid:.27,px:4.2,py:1.7,dx:14,dy:7},
+    {bx:.86,by:.93,rr:.46,deep:.46,mid:.24,px:1.0,py:4.4,dx:12,dy:6},
+    {bx:.55,by:.74,rr:.64,deep:.68,mid:.36,px:3.3,py:2.2,dx:22,dy:12},
+    {bx:.34,by:.96,rr:.42,deep:.42,mid:.22,px:5.0,py:0.6,dx:10,dy:6},
+    {bx:.78,by:.72,rr:.52,deep:.52,mid:.28,px:1.7,py:3.7,dx:16,dy:9}
+  ];
+  var W,H,DPR;
+  function size(){DPR=Math.min(window.devicePixelRatio||1,2);W=host.offsetWidth;H=host.offsetHeight;c.width=W*DPR;c.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+  function draw(t){
+    if((!W||!H)&&host.offsetWidth){size();}
+    ctx.clearRect(0,0,W,H);
+    var base=Math.max(W,900);
+    for(var i=0;i<cores.length;i++){var k=cores[i];
+      var x=k.bx*W+(reduce?0:Math.sin(t/90000*2*Math.PI+k.px)*k.dx);
+      var y=k.by*H+(reduce?0:Math.sin(t/130000*2*Math.PI+k.py)*k.dy);
+      var r=base*(0.30+k.rr*0.18);
+      var g=ctx.createRadialGradient(x,y,0,x,y,r);
+      g.addColorStop(0,'rgba(41,44,40,'+k.deep+')');
+      g.addColorStop(0.35,'rgba(96,100,94,'+k.mid+')');
+      g.addColorStop(1,'rgba(96,100,94,0)');
+      ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    }
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  function mesh(){
+    var mc=document.querySelector('.atmo-mesh'); if(!mc) return;
+    var w=host.offsetWidth, h=host.offsetHeight; if(!w||!h) return;
+    var mx=mc.getContext('2d'); var dpr=Math.min(window.devicePixelRatio||1,2);
+    mc.width=w*dpr; mc.height=h*dpr; mx.setTransform(dpr,0,0,dpr,0,0); mx.clearRect(0,0,w,h);
+    var cell=Math.max(72,Math.round(w/17)), cols=Math.ceil(w/cell)+2, rows=Math.ceil(h/cell)+2;
+    var s=20260701; function rnd(){s=(s*1103515245+12345)&0x7fffffff; return s/0x7fffffff;}
+    var pts=[],r,cc;
+    for(r=0;r<rows;r++){pts[r]=[]; for(cc=0;cc<cols;cc++){pts[r][cc]={x:(cc-1)*cell+(rnd()-0.5)*cell*0.62,y:(r-1)*cell+(rnd()-0.5)*cell*0.62};}}
+    function face(a,b,d,row){
+      var ty=row/(rows-1), base=206-ty*52+(rnd()-0.5)*13; if(base<148)base=148; if(base>220)base=220;
+      mx.beginPath(); mx.moveTo(a.x,a.y); mx.lineTo(b.x,b.y); mx.lineTo(d.x,d.y); mx.closePath();
+      mx.fillStyle='rgb('+Math.round(base-3)+','+Math.round(base)+','+Math.round(base-8)+')'; mx.fill();
+      mx.strokeStyle='rgba(38,42,38,0.055)'; mx.lineWidth=0.7; mx.stroke();
+    }
+    for(r=0;r<rows-1;r++){for(cc=0;cc<cols-1;cc++){
+      var p00=pts[r][cc],p10=pts[r][cc+1],p01=pts[r+1][cc],p11=pts[r+1][cc+1];
+      face(p00,p10,p11,r); face(p00,p11,p01,r);
+    }}
+  }
+  size(); mesh(); requestAnimationFrame(draw);
+  window.addEventListener('load',function(){size(); mesh(); requestAnimationFrame(draw);});
+  window.addEventListener('resize',function(){size(); mesh(); if(reduce) requestAnimationFrame(draw);});
+})();
+</script>
+</body>
+</html>

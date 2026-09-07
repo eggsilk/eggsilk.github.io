@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The three carbon analyses a cement plant's QC lab does not produce · Strata</title>
+<meta name="description" content="Technical note: XRF, XRD and calorimetry control product and fuel value; none yields the biogenic fraction, the non-carbonate carbon, or the calcination degree of the dust. The carbon-specific analyses CBAM-grade emissions need, and where the real uncertainty sits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <a class="mark" href="index.html"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+  <button class="nav-toggle" aria-label="Menu" aria-controls="nav" aria-expanded="false" onclick="var o=document.getElementById('nav').classList.toggle('open');this.setAttribute('aria-expanded',o)">≡</button>
+  <div class="nav-links" id="nav">
+    <a href="services.html">Services</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="regime.html">CBAM regime</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="about.html#contact">Get in touch</a>
+  </div>
+</div></nav>
+
+<article class="section tight">
+  <div class="narrow">
+    <div class="crumb"><a href="index.html">Strata</a><span class="sep">/</span><a href="research.html">Research</a><span class="sep">/</span><span class="here">Technical note</span></div>
+    <div class="mono" style="font-size:12.5px;letter-spacing:.06em;color:var(--slate);text-transform:uppercase;margin:14px 0 16px">Technical note &middot; June 2026 &middot; Cement</div>
+    <h1 class="display" style="font-size:clamp(30px,4.4vw,46px);line-height:1.08;margin-bottom:20px">The three carbon analyses a cement plant's QC lab does not produce.</h1>
+    <p class="lede measure" style="max-width:46ch">A plant's laboratory is built to control product and fuel value. None of those measurements yields the three numbers an emissions verifier needs.</p>
+  </div>
+</article>
+
+<div class="wrap"><div class="seam-div"><span></span><span></span><span></span></div></div>
+
+<article class="section"><div class="narrow prose">
+  <p>A modern cement plant already owns most of the instruments that emissions monitoring requires. X-ray fluorescence (XRF) reads oxide chemistry, X-ray diffraction (XRD) resolves clinker phases, a bomb calorimeter fixes fuel calorific value, weigh feeders and a weighbridge track mass flows, and the laboratory runs loss-on-ignition and free lime. That kit exists to control <em>product</em> (clinker chemistry, cement strength) and <em>fuel value</em> (calories). Closing a <em>carbon</em> balance was never its purpose.</p>
+  <p>Three numbers decide a CBAM-grade emissions figure, and a plant's quality-control routine produces none of them directly. The first is the <strong>biogenic fraction</strong> of the fuel mix. The second is the <strong>non-carbonate (organic) carbon</strong> in the raw meal. The third is the <strong>degree of calcination of the dust that leaves the kiln</strong>. These are carbon-specific analyses that fall outside the quality-control routine. This note sets out each, together with the point where the real uncertainty sits.</p>
+
+  <h3>1. Biogenic fraction of the fuel mix</h3>
+  <p>Under the Monitoring and Reporting Regulation (Reg. (EU) 2018/2066, Article 38), the emission factor of qualifying biomass is zero. A co-processed fuel's effective emission factor is therefore its preliminary factor multiplied by the <strong>fossil fraction</strong> of its carbon. Every percentage point of biogenic carbon removes reportable fossil CO₂. With alternative fuels now supplying a large share of the kiln's thermal input, that split moves the reported figure well beyond a rounding term.</p>
+  <p>A calorimeter measures energy rather than carbon age, so the fossil-versus-biogenic split stays invisible to it. Radiocarbon resolves it. <strong>EN ISO 13833</strong> determines the biomass-derived fraction of stack CO₂ by the ¹⁴C method. Biogenic carbon carries the contemporary atmospheric ¹⁴C signature. Fossil carbon is millions of years old, its ¹⁴C long decayed, so it reads as effectively ¹⁴C-free. Measurement at the stack, integrated over hours to a month, averages out the bale-to-bale heterogeneity of waste-derived fuels that a single grab-sample cannot. The alternative, <strong>EN ISO 21644</strong> (formerly EN 15440), works on the solid fuel itself by ¹⁴C, selective dissolution, or manual sorting. The dissolution route misclassifies materials such as viscose (biogenic but synthetic) and nylon (fossil but biodegradable), which is why ¹⁴C remains the reference. Analysis runs in an ISO 17025-accredited radiocarbon laboratory. EN ISO 13833 states an expanded uncertainty of 10% where the biogenic fraction of the CO&#8322; lies between 0.02 and 0.10, tightening to 5% between 0.1 and 1.0.</p>
+
+  <h3>2. Non-carbonate carbon in the raw meal</h3>
+  <p>Raw meal carries carbon in two pools. The dominant one is carbonate, CaCO₃ and MgCO₃, which releases CO₂ on calcination. The second and smaller pool is <strong>non-carbonate carbon</strong>, the organic carbon (kerogen, bitumen) held in argillaceous or bituminous limestones and marls. It oxidises to CO₂ on heating, yet it stays invisible to both standard accounting routes. Combustion accounting misses it because it is not a metered fuel. Calcination accounting misses it because it is not a carbonate.</p>
+  <p>Annex IV of the MRR treats it as an additive process-emission term: mass of raw material × organic-carbon content × 3.664 (the stoichiometric C→CO₂ factor). The content is determined as total carbon minus total inorganic carbon. Total carbon is found by dry combustion on an elemental analyser, and inorganic (carbonate) carbon by acid liberation, under <strong>EN 13137</strong>, <strong>DIN 19539</strong> (which resolves the carbon species by ramped combustion), or <strong>ISO 10694</strong>. Where it goes unmeasured, the omission is silent, since no instrument flags its absence.</p>
+
+  <h3>3. Calcination degree of the kiln dust</h3>
+  <p>Calcination is the reaction the whole figure turns on: CaCO₃ → CaO + CO₂ (0.785 t CO₂ per tonne CaO), MgCO₃ → MgO + CO₂ (1.092 t CO₂ per tonne MgO). The MRR's Tier 1 default for clinker is 0.525 t CO₂ per tonne (Annex IV §9). At higher tiers, installation-specific factors follow from measured CaO and MgO.</p>
+  <p>The complication is the dust. Cement kiln dust and alkali-bypass dust leave the system already partly to fully calcined. That CO₂ is real, but the dust never becomes product, so an output-based calculation misses it. The MRR adds it back as a separate source, with a dust emission factor <span class="mono">EF_CKD = EF_Cli × d</span>, where <em>d</em> is the degree of calcination, the fraction of the raw meal's carbonate CO₂ already released. In practice <em>d</em> follows from paired loss-on-ignition measurements on the fresh raw meal and on the dust. Substituting a default for a measured <em>d</em> introduces a systematic bias. The paired LOI on the bleed stream is an emissions-accounting measurement rather than a QC routine, even though the plant lab can run LOI.</p>
+
+  <div class="pull"><p>The instruments report on product and fuel. They do not close a carbon balance. Three added analyses do.</p></div>
+
+  <h3>Where the uncertainty actually sits</h3>
+  <p>The MRR sets the permitted uncertainty on activity data by tier: ±7.5%, ±5%, ±2.5%, ±1.5% from Tier 1 to Tier 4 (Annex II). The required tier rises with the installation's emissions category. The metering error on the weighbridge is rarely where the real uncertainty lives. It lives in four other places.</p>
+  <ul>
+    <li><strong>Sampling representativeness</strong> of heterogeneous alternative fuels. The sub-sample sent for ¹⁴C analysis dominates total uncertainty far more than the feeder's metering error does. Integration of stack gas over time, per EN ISO 13833, moves that uncertainty onto a representative stream.</li>
+    <li><strong>The biogenic split itself</strong>, which at its stated uncertainty is often a larger error source than the carbonate term, because it is both large and variable.</li>
+    <li><strong>Carbonate-source attribution</strong>. XRF reports total clinker CaO, but the tier-compliant question is how much CaO entered the kiln <em>already decarbonated</em> (from slag or fly ash) and must be excluded from calcination CO₂.</li>
+    <li><strong>The dust term</strong>, where a default <em>d</em> stands in for paired LOI.</li>
+  </ul>
+  <p>A tier-compliant determination decomposes total emissions into independently quantified terms: calcination, dust calcination, organic carbon, and biogenic correction. Each term carries its own tier and uncertainty, and the determination then propagates them. The competence lies in knowing which term carries the variance and directing the metrological effort there, well short of metering everything to ±1.5%.</p>
+
+  <p class="note">Standards and methods are cited as they stand in the consolidated MRR (Reg. (EU) 2018/2066) and the named EN/ISO standards; specific clause numbers are confirmed against the primary text before any figure informs an engagement. This note describes method, not a completed engagement.</p>
+</div></article>
+
+<section class="section" id="contact">
+  <div class="narrow">
+    <h2 class="title" style="margin:0 0 16px;max-width:26ch">The analyses behind a defensible figure</h2>
+    <p class="body measure" style="max-width:58ch">These three analyses form part of the measurement campaign. Given the goods in scope (CN codes) and the installation, the practice returns a readiness assessment against the MRR, including which carbon-specific analyses the current monitoring is missing. Strata prepares and documents the data; the verification opinion is issued by an independent accredited verifier.</p>
+    <div style="margin-top:24px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <a class="btn btn-solid" href="mailto:hello@example.com">hello@example.com</a>
+      <span class="mono" style="font-size:12.5px;color:var(--slate)">Berlin &middot; preparer of emissions data, not an accredited verifier</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-col">
+        <a class="mark" href="index.html" style="margin-bottom:14px"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+        <p class="foot-about">Embedded-emissions measurement and MRV engineering. We prepare installation data to the EU monitoring rules, ready for independent verification.</p>
+      </div>
+      <div class="foot-col"><h4>Navigate</h4>
+        <a href="services.html">Services</a><a href="research.html">Research</a><a href="regime.html">CBAM regime</a><a href="about.html">About</a></div>
+      <div class="foot-col"><h4>Contact</h4>
+        <a href="about.html#contact">Get in touch</a><a href="mailto:hello@example.com">hello@example.com</a>
+        <span class="foot-about" style="display:block;margin-top:6px">Berlin</span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Strata (working name). A newly established practice.</span>
+      <span class="mono">Preparer of emissions data · not an accredited verifier</span>
+    </div>
+  </div>
+</footer>
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>

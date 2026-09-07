@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction A — Regulatory Authority</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2A47; --navy-2:#13355A; --blue:#1E73BE; --green:#2E7D52;
+    --ink:#1F2933; --mut:#5A6B7B; --line:#D8DEE6; --band:#F4F6F8; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--white);
+    -webkit-font-smoothing:antialiased;line-height:1.5;font-feature-settings:"tnum" 1,"ss01" 1}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .mark{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--navy)}
+  .seal-sm{width:24px;height:24px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:14.5px;font-weight:500;opacity:.85}
+  .nav-links a:hover{opacity:1}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;
+    text-decoration:none;padding:11px 20px;border-radius:6px;transition:.15s}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-2)}
+  .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--navy)}
+  /* hero */
+  .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(900px 500px at 88% -10%, rgba(30,115,190,.28), transparent 60%);}
+  .hero-in{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:84px 0 92px}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:#9FC4E8;margin-bottom:22px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+  h1{font-size:46px;line-height:1.1;font-weight:700;letter-spacing:-.02em;margin-bottom:22px}
+  h1 .hl{color:#7FB6E8}
+  .lede{font-size:18px;line-height:1.65;color:#C5D4E2;max-width:35em;margin-bottom:32px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.25)}
+  .hero .btn-ghost:hover{border-color:#fff}
+  /* seal device */
+  .seal-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;
+    padding:34px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+  .seal-big{width:148px;height:148px}
+  .seal-fig{font-size:15px;color:#C5D4E2}
+  .seal-fig b{display:block;color:#fff;font-size:26px;font-weight:700;letter-spacing:-.01em;margin-bottom:2px}
+  .seal-tag{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#7FB6E8;font-weight:600}
+  .illus{font-size:11px;color:#6f8aa3;margin-top:2px}
+  /* credential strip */
+  .strip{border-top:1px solid rgba(255,255,255,.12);margin-top:6px}
+  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--line)}
+  .cred{padding:26px 28px;border-right:1px solid var(--line)}
+  .cred:last-child{border-right:0}
+  .cred .k{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+  .cred .v{font-size:15px;color:var(--ink);font-weight:500;line-height:1.45}
+  /* services */
+  .sec{padding:88px 0}
+  .sec-head{max-width:46em;margin-bottom:46px}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  h2{font-size:32px;font-weight:700;letter-spacing:-.02em;color:var(--navy);margin-bottom:14px}
+  .sec-head p{font-size:17px;color:var(--mut);line-height:1.6}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:10px;padding:30px 28px;background:#fff;transition:.15s}
+  .card:hover{border-color:#c2ccd8;box-shadow:0 8px 28px rgba(14,42,71,.07)}
+  .card .num{font-size:13px;font-weight:700;color:var(--green);letter-spacing:.1em;margin-bottom:16px}
+  .card h3{font-size:20px;font-weight:600;color:var(--navy);margin-bottom:10px}
+  .card p{font-size:15px;color:var(--mut);line-height:1.6}
+  /* footer */
+  footer{background:var(--band);border-top:1px solid var(--line);padding:40px 0}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:var(--mut);font-size:13.5px}
+  @media(max-width:880px){.hero-in{grid-template-columns:1fr;gap:40px}.strip-in,.cards{grid-template-columns:1fr;}
+    .cred{border-right:0;border-bottom:1px solid var(--line)}h1{font-size:34px}.wrap{padding:0 22px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <div class="mark">
+    <svg class="seal-sm" viewBox="0 0 48 48" fill="none"><path d="M24 3l18 6v12c0 11-7.6 19.6-18 24C13.6 40.6 6 32 6 21V9l18-6z" stroke="#0E2A47" stroke-width="2.5"/><path d="M16.5 24l5.5 5.5L33 18.5" stroke="#2E7D52" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Verda
+  </div>
+  <div class="nav-links">
+    <a href="#">Method</a><a href="#">Services</a><a href="#">CBAM regime</a><a href="#">About</a>
+    <a class="btn btn-primary" href="#">Book a call</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="eyebrow"><span class="dot"></span>EU CBAM · Verified emissions data</span>
+    <h1>Verified emissions data your EU importers can <span class="hl">actually file on.</span></h1>
+    <p class="lede">We turn a cement or steel plant's existing instruments into an audited CBAM number — and deliver it in the form your importer's declaration requires. One dataset, accepted on both sides of the border.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#">Book a call</a>
+      <a class="btn btn-ghost" href="#">See a sample report</a>
+    </div>
+  </div>
+  <div class="seal-card">
+    <svg class="seal-big" viewBox="0 0 160 160" fill="none">
+      <circle cx="80" cy="80" r="74" stroke="#1E73BE" stroke-width="2"/>
+      <circle cx="80" cy="80" r="62" stroke="rgba(255,255,255,.25)" stroke-width="1" stroke-dasharray="2 5"/>
+      <path d="M80 26l44 14v28c0 27-18.5 47-44 58-25.5-11-44-31-44-58V40l44-14z" stroke="#2E7D52" stroke-width="2.5"/>
+      <path d="M62 80l13 13 24-26" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="80" y="138" text-anchor="middle" fill="#9FC4E8" font-size="9.5" font-family="Inter" font-weight="600" letter-spacing="2.5">VERIFIED · CBAM</text>
+    </svg>
+    <div class="seal-fig"><b>0.847 tCO₂e/t</b>clinker — direct + indirect</div>
+    <div class="seal-tag">Status: verified ✓ · EN 19694</div>
+    <div class="illus">illustrative deliverable — not a client figure</div>
+  </div>
+</div>
+<div class="strip"><div class="wrap"><div class="strip-in">
+  <div class="cred"><div class="k">Regulation</div><div class="v">CBAM Reg.<br>(EU) 2023/1773</div></div>
+  <div class="cred"><div class="k">Monitoring</div><div class="v">MRR<br>(EU) 2018/2066</div></div>
+  <div class="cred"><div class="k">Method</div><div class="v">EN 19694 /<br>CEN-TS standards</div></div>
+  <div class="cred"><div class="k">Corridor</div><div class="v">Cement &amp; steel<br>Türkiye → EU</div></div>
+</div></div></div>
+</header>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">What we do</div>
+    <h2>From the plant floor to the importer's declaration.</h2>
+    <p>Most exporters already own the instruments. What's missing is the competence to turn them into a verified, attributed number — and the bridge to get that number accepted in the EU.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="num">01 — MEASURE</div><h3>Produce the data</h3><p>Turn existing plant QC instruments into a compliant, attributed emissions number, built on the MRR mass-balance method.</p></div>
+    <div class="card"><div class="num">02 — VERIFY</div><h3>Make it audit-grade</h3><p>Monitoring-plan design, the carbon-specific analytics most plants never ran, and a verification-ready data flow.</p></div>
+    <div class="card"><div class="num">03 — BRIDGE</div><h3>Deliver to the importer</h3><p>Hand the verified number to your EU importer in declaration-ready form — real data instead of punitive default values.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap foot-in">
+  <div class="mark" style="font-size:16px">Verda</div>
+  <div>EU CBAM verified emissions data · Türkiye → EU · © 2026</div>
+</div></footer>
+</body>
+</html>

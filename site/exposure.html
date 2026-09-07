@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exposure estimator · Strata</title>
+<meta name="description" content="An indicative estimate of CBAM cost on default values versus verified data, and the gap between them. Free, no sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <a class="mark" href="index.html"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+  <button class="nav-toggle" aria-label="Menu" aria-controls="nav" aria-expanded="false" onclick="var o=document.getElementById('nav').classList.toggle('open');this.setAttribute('aria-expanded',o)">≡</button>
+  <div class="nav-links" id="nav">
+    <a href="services.html">Services</a>
+    <a href="research.html">Research</a>
+    <a href="regime.html" class="active">CBAM regime</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="about.html#contact">Get in touch</a>
+  </div>
+</div></nav>
+
+<section class="section tight">
+  <div class="narrow">
+    <div class="crumb"><a href="index.html">Strata</a><span class="sep">/</span><a href="regime.html">CBAM regime</a><span class="sep">/</span><span class="here">Exposure estimator</span></div>
+    <h1 class="display" style="font-size:clamp(34px,5vw,54px);margin:18px 0 0">Exposure estimator</h1>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="narrow">
+    <p class="lede measure" style="max-width:50ch">This tool gives an indicative read of the CBAM cost charged on default values and the cost carried by verified data. It reports the gap between the two. No sign-up is required, and the calculation is shown in full.</p>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <h2 class="sr-only">CBAM exposure estimator</h2>
+    <div class="calc">
+      <div class="calc-inputs">
+        <div class="field">
+          <label for="good">Good</label>
+          <select id="good" onchange="preset();calc()">
+            <option value="cement">Cement / clinker</option>
+            <option value="steel_bf">Steel, integrated (BF-BOF)</option>
+            <option value="steel_eaf">Steel, electric-arc (EAF, scrap)</option>
+            <option value="aluminium">Aluminium</option>
+            <option value="fertiliser">Fertiliser (urea)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="vol">Annual volume into the EU (tonnes)</label>
+          <input id="vol" type="number" min="0" step="100" value="10000" oninput="calc()">
+        </div>
+        <div class="field">
+          <label for="year">Compliance year</label>
+          <select id="year" onchange="calc()">
+            <option value="2026">2026</option><option value="2027">2027</option>
+            <option value="2028">2028</option><option value="2029">2029</option>
+            <option value="2030" selected>2030</option><option value="2031">2031</option>
+            <option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option>
+          </select>
+          <div class="hint" id="factorhint"></div>
+        </div>
+        <div class="field">
+          <label for="defint">Default intensity, tCO₂e/t (indicative)</label>
+          <input id="defint" type="number" min="0" step="0.01" value="1.55" oninput="calc()">
+          <div class="hint">Applied when you cannot show verified data, plus the annual mark-up.</div>
+        </div>
+        <div class="field">
+          <label for="actint">Your verified intensity, tCO₂e/t</label>
+          <input id="actint" type="number" min="0" step="0.01" value="0.88" oninput="calc()">
+          <div class="hint">Typical for the sector. Replace with your installation's real figure.</div>
+        </div>
+        <div class="field">
+          <label for="price">CBAM certificate price (€/tCO₂)</label>
+          <input id="price" type="number" min="0" step="0.01" value="75.36" oninput="calc()">
+          <div class="hint">The official CBAM certificate price for Q1 2026. The Q2 price publishes in early July 2026. Editable.</div>
+        </div>
+      </div>
+      <div class="calc-output">
+        <div class="out-block">
+          <div class="ol">Cost on default values</div>
+          <div class="ov default-v mono" id="o-default"></div>
+          <div class="os" id="o-default-s"></div>
+        </div>
+        <div class="out-block">
+          <div class="ol">Cost with verified data</div>
+          <div class="ov actual-v mono" id="o-actual"></div>
+        </div>
+        <div class="out-block">
+          <div class="ol">Potential saving, if verified data is accepted</div>
+          <div class="ov save-v mono" id="o-save"></div>
+          <div class="os" id="o-save-s"></div>
+        </div>
+        <div class="calc-math mono" id="math"></div>
+      </div>
+    </div>
+
+    <div class="caveat narrow" style="max-width:none;margin-top:0;border-radius:0;border-top:0">
+      <div class="ttl">Basis and limits of the figure</div>
+      <p>The figure is an indicative estimate. It does not constitute legal, tax, or financial advice. Any decision should be checked against EU Regulation (EU) 2023/956 and Implementing Regulation (EU) 2025/2621.</p>
+      <p>The default and intensity values shown are sector-typical placeholders. Actual CBAM default values are country- and product-specific and are updated by the Commission. The figures here may lag the official tables and are being finalised against them.</p>
+      <p>The certificate price varies, quarterly in 2026 and weekly from 2027, while the estimate uses one fixed price. The estimate assumes no carbon price is paid in the country of origin. A saving requires emissions data that is third-party verified and accepted under CBAM. Where actuals are unverified they cannot be used, and the default plus mark-up applies instead. For iron and steel, aluminium, and hydrogen only direct emissions carry a certificate obligation in the definitive period, so preset intensities that include indirect emissions overstate the chargeable figure for those goods.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="narrow" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+    <a class="btn btn-solid" href="about.html#contact">Get a read on your specific case &rarr;</a>
+    <a class="link-quiet" href="services.html">How the verified number is produced</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-col">
+        <a class="mark" href="index.html" style="margin-bottom:14px"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+        <p class="foot-about">Embedded-emissions measurement and MRV engineering. We prepare installation data to the EU monitoring rules, ready for independent verification.</p>
+      </div>
+      <div class="foot-col"><h4>Navigate</h4>
+        <a href="services.html">Services</a><a href="research.html">Research</a><a href="regime.html">CBAM regime</a><a href="about.html">About</a></div>
+      <div class="foot-col"><h4>Contact</h4>
+        <a href="about.html#contact">Get in touch</a><a href="mailto:hello@example.com">hello@example.com</a>
+        <span class="foot-about" style="display:block;margin-top:6px">Berlin</span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Strata (working name). A newly established practice.</span>
+      <span class="mono">Figures are indicative and being finalised against Implementing Regulation (EU) 2025/2621.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var FACTOR={2026:.025,2027:.05,2028:.10,2029:.225,2030:.485,2031:.61,2032:.735,2033:.86,2034:1};
+  var MARKUP={2026:.10,2027:.20,2028:.30,2029:.30,2030:.30,2031:.30,2032:.30,2033:.30,2034:.30};
+  var PRESET={
+    cement:{d:1.55,a:0.88}, steel_bf:{d:2.90,a:2.10}, steel_eaf:{d:2.90,a:0.70},
+    aluminium:{d:6.50,a:4.00}, fertiliser:{d:2.50,a:1.80}
+  };
+  var eur=new Intl.NumberFormat('en-IE',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  function $(id){return document.getElementById(id)}
+  function preset(){var p=PRESET[$('good').value];$('defint').value=p.d;$('actint').value=p.a;}
+  function calc(){
+    var y=$('year').value, f=FACTOR[y], m=($('good').value==='fertiliser') ? 0.01 : MARKUP[y];
+    var vol=parseFloat($('vol').value)||0, di=parseFloat($('defint').value)||0,
+        ai=parseFloat($('actint').value)||0, pr=parseFloat($('price').value)||0;
+    var diM=di*(1+m);
+    var defCost=diM*vol*f*pr, actCost=ai*vol*f*pr, save=Math.max(0,defCost-actCost);
+    $('o-default').textContent=eur.format(defCost);
+    $('o-actual').textContent=eur.format(actCost);
+    $('o-save').textContent=eur.format(save);
+    $('factorhint').textContent='Phase-in factor '+(f*100).toFixed(1)+'% · default mark-up +'+(m*100)+'%';
+    $('o-default-s').textContent='= '+di+' × '+(1+m).toFixed(2)+' mark-up = '+diM.toFixed(2)+' tCO₂e/t effective';
+    var pct = defCost>0 ? Math.round(save/defCost*100) : 0;
+    $('o-save-s').textContent = pct+'% of the default-value cost, if verified data is accepted';
+    $('math').textContent='default  '+diM.toFixed(2)+' × '+vol.toLocaleString()+' t × '+(f*100).toFixed(1)+'% × €'+pr+'      verified  '+ai.toFixed(2)+' × '+vol.toLocaleString()+' t × '+(f*100).toFixed(1)+'% × €'+pr;
+  }
+  preset();calc();
+</script>
+</body>
+</html>

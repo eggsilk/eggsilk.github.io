@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Type options — Strata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EAE3D4;--paper-2:#F2EDE2;--ink:#2A2E31;--ink-soft:#444B4F;
+  --slate:#4F5B62;--gold:#4C5A5D;--gold-br:#C99A3F;--rust:#5C574F;--line:#CFC6B2;--line-2:#BBB09A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);padding:48px 32px 120px;-webkit-font-smoothing:antialiased}
+.head{max-width:900px;margin:0 auto 40px;font-family:'Inter',sans-serif}
+.head h1{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:500;margin-bottom:10px}
+.head p{font-size:15px;line-height:1.6;color:var(--ink-soft);max-width:60ch}
+.head .mono{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--rust);letter-spacing:.06em;text-transform:uppercase}
+.opt{max-width:900px;margin:0 auto 26px;background:var(--paper-2);border:1px solid var(--line-2);padding:40px 44px}
+.opt .tag{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:28px}
+.opt .tag b{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.opt .tag .stack{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--slate)}
+.seam{display:block;width:74px;height:3px;margin:16px 0 22px;background:linear-gradient(90deg,var(--slate),var(--gold-br),var(--rust))}
+
+/* rendered sample — fonts set per option via --disp/--body/--mono */
+.eye{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:14px}
+.title{font-family:var(--disp);font-size:46px;line-height:1.04;letter-spacing:-.015em;font-weight:var(--disp-w,400)}
+.h2{font-family:var(--disp);font-size:27px;line-height:1.15;letter-spacing:-.01em;font-weight:var(--disp-w,400);margin:30px 0 12px}
+.body{font-family:var(--body);font-size:17px;line-height:1.72;color:var(--ink-soft);max-width:64ch;margin-bottom:14px}
+.bul{font-family:var(--body);font-size:16.5px;line-height:1.7;color:var(--ink-soft);max-width:64ch;padding-left:20px;position:relative}
+.bul::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;background:var(--gold)}
+.bul b{color:var(--ink);font-weight:600}
+.data{font-family:var(--mono);font-size:13px;color:var(--slate);margin-top:20px;letter-spacing:.01em}
+.data b{color:var(--ink-soft);font-weight:500}
+
+.optA{--disp:'Fraunces',serif;--body:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace}
+.optB{--disp:'Source Serif 4',serif;--body:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace;--disp-w:500}
+.optC{--disp:'Newsreader',serif;--body:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace}
+.optD{--disp:'Space Grotesk',sans-serif;--body:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace;--disp-w:500}
+.optE{--disp:'IBM Plex Sans',sans-serif;--body:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;--disp-w:600}
+.optF{--disp:'Instrument Serif',serif;--body:'Inter',sans-serif;--mono:'IBM Plex Mono',monospace}
+.optG{--disp:'Space Grotesk',sans-serif;--body:'Newsreader',serif;--mono:'IBM Plex Mono',monospace;--disp-w:500}
+.optH{--disp:'Libre Franklin',sans-serif;--body:'Libre Franklin',sans-serif;--mono:'IBM Plex Mono',monospace;--disp-w:600}
+</style>
+</head>
+<body>
+<div class="head">
+  <div class="mono">Strata · type specimen</div>
+  <h1 style="margin-top:10px">Font options — same content, eight systems</h1>
+  <p>Each block shows the real page roles: a mono eyebrow, the hero line, a section heading, body prose, a bullet with a bold lead-in, and a mono data line. Tell me a letter (or mix — e.g. "display from D, body from C") and I'll apply it site-wide.</p>
+</div>
+
+<!-- template repeated per option -->
+<section class="opt optA">
+  <div class="tag"><b>A · Current</b><span class="stack">Fraunces · Inter · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optB">
+  <div class="tag"><b>B · Sober serif</b><span class="stack">Source Serif 4 · Inter · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optC">
+  <div class="tag"><b>C · Editorial serif</b><span class="stack">Newsreader · Inter · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optD">
+  <div class="tag"><b>D · Technical sans</b><span class="stack">Space Grotesk · Inter · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optE">
+  <div class="tag"><b>E · Engineering superfamily</b><span class="stack">IBM Plex Sans · IBM Plex Sans · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optF">
+  <div class="tag"><b>F · High-contrast display</b><span class="stack">Instrument Serif · Inter · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optG">
+  <div class="tag"><b>G · Sans head / serif body</b><span class="stack">Space Grotesk · Newsreader · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+<section class="opt optH">
+  <div class="tag"><b>H · Neutral grotesk</b><span class="stack">Libre Franklin · Libre Franklin · IBM Plex Mono</span></div>
+  <span class="eye">Technical note · 2026 · Cement</span>
+  <div class="title">CBAM MRV engineering.</div>
+  <span class="seam"></span>
+  <div class="h2">The three carbon analyses a QC lab does not produce</div>
+  <p class="body">A modern installation already owns most of the instruments emissions monitoring needs. They were built to control product chemistry and fuel value, not to close a carbon balance.</p>
+  <p class="bul"><b>The biogenic fraction of the fuel mix.</b> Determined by radiocarbon — EN ISO 13833 on stack CO₂ — because qualifying biomass carries a zero emission factor.</p>
+  <div class="data"><b>Reg. (EU) 2018/2066</b> · EN ISO 13833 · ISO 17025 · ±1.5%</div>
+</section>
+
+</body>
+</html>

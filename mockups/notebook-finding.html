@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F-002 — Urea and the embedded-emissions deduction · Ege Ipek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBF9F4;
+    --ink: #1F2328;
+    --muted: #6B7280;
+    --faint: #9AA0A6;
+    --rule: #E3DFD5;
+    --accent: #9C6F1C;
+    --draft: #8A6D1F;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 700px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  .crumb {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+    display: flex;
+    gap: 8px;
+  }
+  .crumb a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .crumb a:hover { color: var(--ink); }
+
+  h1 {
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 31px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    max-width: 24ch;
+  }
+
+  /* Metadata block */
+  .meta {
+    margin-top: 28px;
+    border: 1px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 12.5px;
+  }
+  .meta-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .meta-row:last-child { border-bottom: none; }
+  .meta-row .k {
+    padding: 8px 14px;
+    color: var(--faint);
+    border-right: 1px solid var(--rule);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    padding-top: 10px;
+  }
+  .meta-row .v { padding: 8px 14px; color: var(--ink); }
+  .meta-row .v .flag { color: var(--draft); }
+
+  /* Sections */
+  section { margin-top: 44px; }
+  h2 {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 16px;
+  }
+  p + p { margin-top: 12px; }
+  .answer {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.5;
+    max-width: 52ch;
+  }
+  .cite { font-family: var(--mono); font-size: 0.85em; color: var(--muted); white-space: nowrap; }
+  .pending {
+    font-family: var(--mono);
+    font-size: 0.8em;
+    color: var(--draft);
+    border: 1px solid currentColor;
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+  ul { padding-left: 20px; }
+  li + li { margin-top: 8px; }
+  .limits p { color: var(--muted); }
+
+  .citation-line {
+    margin-top: 56px;
+    padding: 16px 18px;
+    background: #F3EFE5;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 560px) {
+    h1 { font-size: 25px; }
+    .meta-row { grid-template-columns: 100px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="crumb">
+    <a href="notebook-home.html">Ege Ipek</a><span>/</span><a href="#">Findings</a><span>/</span><span>F-002</span>
+  </nav>
+
+  <h1>Is CO₂ bound in urea deductible from embedded emissions?</h1>
+
+  <div class="meta">
+    <div class="meta-row"><span class="k">Number</span><span class="v">F-002</span></div>
+    <div class="meta-row"><span class="k">Date</span><span class="v">2026-09-01</span></div>
+    <div class="meta-row"><span class="k">Status</span><span class="v"><span class="flag">Draft — citation pass pending before publication</span></span></div>
+    <div class="meta-row"><span class="k">Concerns</span><span class="v">CBAM definitive period · fertiliser sector · deduction rules</span></div>
+    <div class="meta-row"><span class="k">Cites</span><span class="v">Reg. (EU) 2023/956; the 2025 implementing and delegated acts <span class="flag">[exact citations under review]</span></span></div>
+    <div class="meta-row"><span class="k">Revisions</span><span class="v">none</span></div>
+  </div>
+
+  <section>
+    <h2>Question</h2>
+    <p>In urea production, a substantial share of the CO₂ generated upstream in ammonia synthesis is chemically bound into the product. During CBAM's transitional period it was widely assumed this bound carbon would reduce the embedded emissions of urea. Does the definitive-period law allow that deduction?</p>
+  </section>
+
+  <section>
+    <h2>Short answer</h2>
+    <p class="answer">No. The definitive-period calculation rules admit a deduction only for CO₂ permanently bound in listed products — and the list covers mineral carbonates in construction products. Urea is not on it. The CO₂ leaves the plant in the product and returns to the atmosphere on application; the law treats it as emitted.</p>
+  </section>
+
+  <section>
+    <h2>Analysis</h2>
+    <p>The deduction question turns on a single annex, not on chemistry. The calculation act for the definitive period <span class="pending">citation pending</span> permits subtracting CO₂ that is permanently chemically bound in a product, on the condition that the product appears in the annexed list of eligible uses. That list names precipitated calcium carbonate and comparable mineral carbonates incorporated into construction products — categories chosen for permanence of storage.</p>
+    <p>Urea fails the permanence test by design: the bound CO₂ is released when the fertiliser hydrolyses in soil, within days to weeks of application. The transitional-period practice of netting it off therefore does not carry over. For a declarant importing urea, embedded emissions must be calculated without the deduction, which materially raises the declared figure relative to transitional-period expectations — on the order of the stoichiometric CO₂ content of the product itself, roughly 0.73&nbsp;t&nbsp;CO₂ per tonne of urea <span class="pending">figure to be re-derived for publication</span>.</p>
+    <p>Two practical consequences for 2027 declarations:</p>
+    <ul>
+      <li>Producer-side monitoring reports prepared on transitional assumptions will understate embedded emissions for urea and downstream nitrogen fertilisers; the roll-up needs re-examination before verified figures are relied on.</li>
+      <li>Default values for the fertiliser sector carry a flat mark-up in the definitive regime, so the verified-versus-default decision changes shape for importers who assumed the deduction.</li>
+    </ul>
+  </section>
+
+  <section class="limits">
+    <h2>Limits</h2>
+    <p>This finding addresses the definitive period only; it takes no position on transitional-period reporting already filed. It does not consider carbon captured and geologically stored (a separate deduction with its own conditions), and it does not address national fertiliser regulation. Exact article and annex citations are being re-verified against the Official Journal texts before this note is published — the status flag above clears when they are.</p>
+  </section>
+
+  <div class="citation-line">
+    Cite as: Ipek, E. (2026). <em>Is CO₂ bound in urea deductible from embedded emissions?</em> Working notebook, F-002, draft. egeipek.com/findings/f-002
+  </div>
+
+  <footer>
+    <span><a href="notebook-home.html">← Index</a></span>
+    <span>F-002 · draft</span>
+  </footer>
+
+</div>
+</body>
+</html>

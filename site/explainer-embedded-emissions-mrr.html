@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How embedded emissions are determined under the EU MRR · Strata</title>
+<meta name="description" content="Method explainer: the EU Monitoring and Reporting Regulation determines embedded emissions stream by stream, by the standard or mass-balance method, at a required tier with a stated uncertainty. The cement-clinker case at Annex IV Section 9 worked through end to end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<nav><div class="wrap nav-in">
+  <a class="mark" href="index.html"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+  <button class="nav-toggle" aria-label="Menu" aria-controls="nav" aria-expanded="false" onclick="var o=document.getElementById('nav').classList.toggle('open');this.setAttribute('aria-expanded',o)">≡</button>
+  <div class="nav-links" id="nav">
+    <a href="services.html">Services</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="regime.html">CBAM regime</a>
+    <a href="about.html">About</a>
+    <a class="cta" href="about.html#contact">Get in touch</a>
+  </div>
+</div></nav>
+
+<article class="section tight">
+  <div class="narrow">
+    <div class="crumb"><a href="index.html">Strata</a><span class="sep">/</span><a href="research.html">Research</a><span class="sep">/</span><span class="here">Method explainer</span></div>
+    <div class="mono" style="font-size:12.5px;letter-spacing:.06em;color:var(--slate);text-transform:uppercase;margin:14px 0 16px">Method explainer &middot; June 2026 &middot; Cement</div>
+    <h1 class="display" style="font-size:clamp(30px,4.4vw,46px);line-height:1.08;margin-bottom:20px">How embedded emissions are determined under the EU MRR.</h1>
+    <p class="lede measure" style="max-width:47ch">The Monitoring and Reporting Regulation does not ask for one number. It asks for a determination: stream by stream, by a named method, at a required tier, with the uncertainty stated. This is the shape of that determination, worked through the cement-clinker case.</p>
+  </div>
+</article>
+
+<div class="wrap"><div class="seam-div"><span></span><span></span><span></span></div></div>
+
+<article class="section"><div class="narrow prose">
+  <p>An importer using actual values under CBAM stands on a determination made at the installation to the EU Monitoring and Reporting Regulation (Reg. (EU) 2018/2066, the MRR). The regulation predates CBAM; it is the rulebook the EU Emissions Trading System already runs on, and the CBAM implementing rules for actual values point back to the same monitoring logic. Understanding that logic is the difference between a figure a verifier can accept and a number that reads as an estimate.</p>
+  <p>The determination proceeds in four moves. Split the installation into source streams. Choose a method for each. Meter and analyse each to a required tier. Then sum the terms and carry the uncertainty. This note walks the four, and closes on where a cement determination is won or lost.</p>
+
+  <h3>1. The installation becomes source streams</h3>
+  <p>The MRR does not treat a plant as a single emitter. It resolves it into <strong>source streams</strong> — the specific fuels and materials whose consumption or production gives rise to emissions (Article 3). A cement kiln has several: the raw meal that calcines, each fuel in the burn (coal, petcoke, and the alternative fuels now supplying much of the thermal input), the kiln dust that leaves the system, and the organic carbon carried in the raw material. Each stream is monitored in its own right.</p>
+  <p>The map of streams, the method chosen for each, and the tier applied are not left implicit. They are fixed in advance in the installation's <strong>monitoring plan</strong> (Articles 12 and 14, with the required content set out in Annex I), the document the whole determination is built to satisfy and the first thing a verifier reads. A determination whose monitoring plan does not already name a stream cannot recover it after the fact.</p>
+
+  <h3>2. Each stream gets a method: standard or mass balance</h3>
+  <p>The MRR offers two calculation-based routes, and the choice is made per stream rather than imposed across the installation. The <strong>standard method</strong> (Article 24) computes emissions as activity data multiplied by an emission factor, treating combustion and process emissions as separate terms — the natural fit for a fuel burned or a carbonate calcined. The <strong>mass-balance method</strong> (Article 25) instead tracks carbon in and carbon out across a defined boundary, taking emissions from the difference — the fit where carbon enters and leaves a process in several materials that are awkward to meter one by one.</p>
+  <p>For a cement kiln the standard method usually carries the load: the calcination term and the fuel terms are cleanly separable. What matters is that the method is a deliberate, documented choice for each stream, made where it is most defensible, not a single technique stretched over the whole plant.</p>
+
+  <h3>3. Each stream is metered to a tier, and the tier is earned</h3>
+  <p>A method is only as good as the precision of what feeds it, and the MRR makes that precision explicit through <strong>tiers</strong>. A tier is a defined accuracy requirement on each input. For activity data, Annex II sets the maximum permissible uncertainty over a reporting period at the tier levels of roughly <strong>&plusmn;7.5%, &plusmn;5%, &plusmn;2.5% and &plusmn;1.5%</strong> from Tier 1 up to Tier 4, with a parallel structure governing the emission factors and composition data. The higher the tier, the tighter the tolerance the measurement must hold.</p>
+  <p>The required tier is not chosen for convenience. It rises with the installation's emissions category, so a large emitter is held to tighter tolerances on its main streams than a small one. A determination therefore has to show two things at once: that each stream is metered and analysed to a stated tier, and that the stated tier meets the one the regulation requires for a stream of that size. A figure quoted without its tier is a figure a verifier cannot place.</p>
+
+  <div class="pull"><p>The regulation never asks for a number on its own. It asks for a number, its method, its tier, and its uncertainty — together.</p></div>
+
+  <h3>4. The terms are summed, and the uncertainty is carried</h3>
+  <p>The installation's emissions are the sum of the stream terms, and the determination's uncertainty is propagated from theirs. This is where the discipline shows: the effort goes to the stream that carries the variance, not evenly across all of them. On a modern cement kiln that stream is rarely the weighbridge. It is the biogenic split of the alternative fuels — both large and variable — and the attribution of the carbonate source. Metering everything to &plusmn;1.5% is neither required nor useful; directing the metrological effort to the term that dominates the budget is the actual competence.</p>
+
+  <h3>The cement-clinker case, at Annex IV Section 9</h3>
+  <p>Cement is where these moves become concrete, because clinker production is dominated by <em>process</em> emissions — the CO&#8322; driven off when carbonates decompose — rather than by fuel. Annex IV Section 9 of the MRR governs it, and it turns on four terms.</p>
+  <ul>
+    <li><strong>Calcination.</strong> The reaction the figure rests on: CaCO&#8323; &rarr; CaO + CO&#8322; (0.785 t CO&#8322; per tonne CaO) and MgCO&#8323; &rarr; MgO + CO&#8322; (1.092 per tonne MgO). At higher tiers the emission factor follows from the measured CaO and MgO actually calcined; where an installation-specific factor is not yet available, the Tier 1 clinker default is <strong>0.525 t CO&#8322; per tonne of clinker</strong>.</li>
+    <li><strong>Kiln dust.</strong> Cement kiln dust and bypass dust leave the system already partly calcined, carrying real CO&#8322; that never becomes product. The MRR adds it back as its own source, with a dust emission factor <span class="mono">EF_CKD = EF_Cli &times; d</span>, where <em>d</em> is the degree of calcination of the dust. Substituting a default for a measured <em>d</em> introduces a systematic bias.</li>
+    <li><strong>Fuel combustion, net of biomass.</strong> The burn's fossil CO&#8322;, with the biogenic fraction of the fuel zero-rated. The emission factor of qualifying biomass is zero (Articles 38 and 39), so a co-processed fuel is reported at its fossil fraction — and every point of biogenic carbon that goes undemonstrated is fossil CO&#8322; reported by default.</li>
+    <li><strong>Non-carbonate carbon.</strong> The organic carbon held in some limestones and marls oxidises to CO&#8322; on heating, yet it is neither a metered fuel nor a carbonate, so both standard routes miss it unless it is added as an explicit process term.</li>
+  </ul>
+  <p>Three of those four terms depend on carbon-specific analyses a cement plant's quality-control laboratory does not run: the biogenic fraction, the non-carbonate carbon, and the dust's calcination degree. Which analyses close them, and where each standard sits, is the subject of a companion note.</p>
+
+  <p class="note">Article, annex and factor references are cited as they stand in the consolidated MRR (Reg. (EU) 2018/2066); specific clause numbers and any installation-specific factors are confirmed against the primary text before any figure informs an engagement. This note describes method, not a completed engagement.</p>
+
+  <p style="margin-top:26px"><a class="link-arrow" href="note-carbon-analyses.html">Companion note: the three carbon analyses a cement plant's QC lab does not produce &rarr;</a></p>
+</div></article>
+
+<section class="section" id="contact">
+  <div class="narrow">
+    <h2 class="title" style="margin:0 0 16px;max-width:28ch">A determination, not an estimate</h2>
+    <p class="body measure" style="max-width:58ch">Given the goods in scope (CN codes) and the installation, the practice designs the monitoring plan, computes each source-stream term by its prescribed method and tier, and returns the embedded-emissions figure with its uncertainty budget. Strata prepares and documents the data; the verification opinion is issued by an independent accredited verifier.</p>
+    <div style="margin-top:24px;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <a class="btn btn-solid" href="mailto:hello@example.com">hello@example.com</a>
+      <span class="mono" style="font-size:12.5px;color:var(--slate)">Berlin &middot; preparer of emissions data, not an accredited verifier</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-col">
+        <a class="mark" href="index.html" style="margin-bottom:14px"><svg class="seam" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M2 9c5-2 9 2 14 0s9-2 14 0" stroke="#6C7069" stroke-width="1.6"/><path d="M2 16c5-2 9 2 14 0s9-2 14 0" stroke="#4C5A5D" stroke-width="2"/><path d="M2 23c5-2 9 2 14 0s9-2 14 0" stroke="#5C574F" stroke-width="1.6"/></svg>Strata</a>
+        <p class="foot-about">Embedded-emissions measurement and MRV engineering. We prepare installation data to the EU monitoring rules, ready for independent verification.</p>
+      </div>
+      <div class="foot-col"><h4>Navigate</h4>
+        <a href="services.html">Services</a><a href="research.html">Research</a><a href="regime.html">CBAM regime</a><a href="about.html">About</a></div>
+      <div class="foot-col"><h4>Contact</h4>
+        <a href="about.html#contact">Get in touch</a><a href="mailto:hello@example.com">hello@example.com</a>
+        <span class="foot-about" style="display:block;margin-top:6px">Berlin</span></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Strata (working name). A newly established practice.</span>
+      <span class="mono">Preparer of emissions data &middot; not an accredited verifier</span>
+    </div>
+  </div>
+</footer>
+<script>
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+---
+// The metadata block at the top of every note.
+// Fixed vocabulary: created, modified, status, confidence, topics.
+import { fmtDate, statusLabel, statusClass, confidenceLabel } from '../lib/format';
+
+interface Props {
+  id: string;
+  kind: string;
+  created: Date;
+  modified?: Date;
+  status: string;
+  confidence?: string;
+  topics: string[];
+}
+const { id, kind, created, modified, status, confidence, topics } = Astro.props;
+const kindLabel: Record<string, string> = { finding: 'finding', position: 'position', explainer: 'explainer' };
+---
+<div class="meta" aria-label="Note metadata">
+  <div class="meta-row"><div class="k">Entry</div><div class="v">{id} · {kindLabel[kind] ?? kind}</div></div>
+  <div class="meta-row"><div class="k">Created</div><div class="v">{fmtDate(created)}</div></div>
+  <div class="meta-row"><div class="k">Modified</div><div class="v">{modified ? fmtDate(modified) : '—'}</div></div>
+  <div class="meta-row"><div class="k">Status</div><div class="v"><span class={statusClass(status)}>{statusLabel(status)}</span></div></div>
+  {confidence && <div class="meta-row"><div class="k">Confidence</div><div class="v">{confidenceLabel(confidence)}</div></div>}
+  {topics.length > 0 && <div class="meta-row"><div class="k">Topics</div><div class="v">{topics.join(' · ')}</div></div>}
+</div>
