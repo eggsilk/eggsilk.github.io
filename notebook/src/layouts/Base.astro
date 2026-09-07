@@ -29,9 +29,9 @@ const nav = [
 </head>
 <body>
   <div class="page">
-    {section !== 'home' && (
+    {(
       <div class="top">
-        <a href="/">Ege Ipek</a>
+        <a href="/" aria-current={section === 'home' ? 'page' : undefined}>Ege Ipek</a>
         <nav>
           {nav.map((n) => <a href={n.href} aria-current={section === n.key ? 'page' : undefined}>{n.label}</a>)}
         </nav>

@@ -9,11 +9,10 @@ const work = (await getCollection('work')).sort(byNewest);
 const updated = new Date(Math.max(...[...notes, ...work].map((e) => (e.data.modified ?? e.data.created).getTime())));
 ---
 <Base title="Ege Ipek" section="home" description="Ege Ipek, auditor of emissions data under the EU ETS and CBAM. Notes and work.">
-  <h1>Ege Ipek</h1>
   <div class="muted">Updated {fmtLong(updated)}</div>
 
   <p>I audit emissions data under the EU ETS and CBAM, as a freelance verifier and as a subcontractor to advisory firms. I live in Berlin.</p>
-  <p>Before that I managed monitoring, reporting and filing for industrial carbon-offset projects at ClimeCo in New York.</p>
+  <p>Before that I managed monitoring, reporting and filing for industrial carbon-offset projects at a project developer in New York.</p>
   <p>You can reach me via <a href="mailto:mail@example.com">email</a>. Details are on the <a href="/about/">about</a> page.</p>
 
   <h3>Notes</h3>
