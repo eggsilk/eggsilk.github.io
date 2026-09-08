@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import atlas from '../../data/atlas.json';
+
+export function getStaticPaths() {
+  return atlas.instruments.map((i: any) => ({ params: { id: i.id }, props: { i } }));
+}
+const { i } = Astro.props;
+
+const ROLE_LABEL: Record<string, string> = {
+  legal_basis: 'basis',
+  implementing_regulation: 'implementing',
+  delegated_regulation: 'delegated',
+  amendment: 'amendment',
+  guidance: 'guidance',
+  transposition: 'transposition',
+};
+const basisDoc = i.status_basis
+  ? i.documents.find((d: any) => d.id === i.status_basis.doc)
+  : null;
+---
+<Base title={i.name} section="tools" description={`${i.name}: status, governing documents, relations.`}>
+  <style>
+    /* relation phrases need a wider label column than years do */
+    .facts { --yearcol: 176px; }
+  </style>
+  <a class="back" href="/atlas/">← Atlas</a>
+  <div class="head">
+    <h1>{i.name}{i.name_local !== i.name && <span class="muted"> · {i.name_local}</span>}</h1>
+    <p class="line">{i.jurisdiction} · {i.type.replace('_', ' ')} · {i.status_label} · as of {i.as_of}</p>
+  </div>
+
+  {i.notes && <p>{i.notes}</p>}
+  {i.status_basis && (
+    <p class="muted">
+      Status per {basisDoc && basisDoc.url ? <a href={basisDoc.url}>{i.status_basis.doc}</a> : i.status_basis.doc}
+      {i.status_basis.unit && <>, {i.status_basis.unit}</>}.
+    </p>
+  )}
+
+  {i.documents.length > 0 && (
+    <>
+      <h3>Documents</h3>
+      <ul class="list">
+        {i.documents.map((d: any) => (
+          <li>
+            {d.url ? (
+              <a href={d.url}>
+                <span class="yr">{ROLE_LABEL[d.role] ?? d.role}</span>
+                <span class="t">
+                  {d.label}
+                  {d.status === 'superseded' && <span class="flag-quiet">superseded</span>}
+                </span>
+                {d.role === 'legal_basis' && (d.amendments > 0 || d.corrigenda > 0) && (
+                  <time class="muted">{d.amendments} am. · {d.corrigenda} corr.</time>
+                )}
+              </a>
+            ) : (
+              <div class="row unlinked">
+                <span class="yr">{ROLE_LABEL[d.role] ?? d.role}</span>
+                <span class="t">{d.label}</span>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+      {i.documents.some((d: any) => (d.pending_proposals ?? []).length > 0) && (
+        <p class="muted">
+          Pending amendment proposals:{' '}
+          {i.documents.flatMap((d: any) => d.pending_proposals ?? []).join(', ')}.
+        </p>
+      )}
+    </>
+  )}
+
+  {i.edges.length > 0 && (
+    <>
+      <h3>Relations</h3>
+      <ul class="facts">
+        {i.edges.map((e: any) => (
+          <li>
+            <span class="k">{e.phrase}</span>
+            <span>
+              <a href={`/atlas/${e.other}/`}>{e.other_name}</a>
+              {e.note && <span class="muted"> — {e.note}</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  {i.unverified.length > 0 && (
+    <div class="tail">
+      <p class="muted">Unverified: {i.unverified.join('; ')}.</p>
+    </div>
+  )}
+
+  <div class="tail">
+    <p class="muted">
+      {i.curated
+        ? 'Curated from primary law.'
+        : 'From the World Bank Carbon Pricing Dashboard (CC BY 4.0).'}
+      {' '}Generated {atlas.generated}.
+    </p>
+  </div>
+</Base>

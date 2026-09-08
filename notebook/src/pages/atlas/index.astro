@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import atlas from '../../data/atlas.json';
+
+const groups = [
+  { key: 'border_mechanism', label: 'Border mechanisms' },
+  { key: 'ets', label: 'Emissions trading systems' },
+  { key: 'carbon_tax', label: 'Carbon taxes' },
+];
+const byName = (a: any, b: any) => a.name.localeCompare(b.name);
+---
+<Base title="Atlas" section="tools" description="Carbon-pricing instruments worldwide: statuses, governing documents, cross-border relations.">
+  <div class="head">
+    <h1>Carbon regulation atlas</h1>
+    <p class="line">{atlas.counts.instruments} instruments · generated {atlas.generated} · data: World Bank Carbon Pricing Dashboard (CC BY 4.0), EUR-Lex, legislation.gov.uk, mevzuat.gov.tr</p>
+  </div>
+
+  {groups.map((g) => (
+    <>
+      <h3>{g.label}</h3>
+      <ul class="list">
+        {atlas.instruments.filter((i: any) => i.type === g.key).sort(byName).map((i: any) => (
+          <li>
+            <a href={`/atlas/${i.id}/`}>
+              <span class="yr">{i.jurisdiction}</span>
+              <span class="t">{i.name}{i.stale && <span class="flag-quiet">stale</span>}</span>
+              <time class="muted">{i.status_label}</time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
+</Base>
