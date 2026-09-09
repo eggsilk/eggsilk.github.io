@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { fmtLong, statusLabel } from '../../lib/format';
+
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.filter((t) => !t.data.draft).map((t) => ({ params: { slug: t.id }, props: { tool: t } }));
+}
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+const d = tool.data;
+const line = [
+  fmtLong(d.created),
+  d.modified ? `revised ${fmtLong(d.modified)}` : null,
+  `${d.id}, tool`,
+  d.status !== 'published' ? statusLabel(d.status) : null,
+].filter(Boolean).join(' · ');
+---
+<Base title={d.title} section="tools" description={d.gloss}>
+  <header class="head">
+    <h1>{d.title}</h1>
+    <div class="line">{line}</div>
+  </header>
+
+  <div class="prose">
+    <Content />
+  </div>
+</Base>
