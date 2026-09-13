@@ -38,21 +38,37 @@ difference is drawn as its own ribbon, marked UNACCOUNTED.
 ![The kiln system, with the unaccounted carbon drawn as its own ribbon](/tools/blueprint/kiln.png)
 
 Findings are numbered markers with a line to the element they concern.
-Clicking one opens the finding and the clause it is based on. The panel on
-the left lists the monitoring plan by its required items, and clicking an
-entry highlights that element on the drawing.
+Clicking one opens the finding and the clause it is based on.
 
-![The findings panel](/tools/blueprint/findings.png)
+![Two findings](/tools/blueprint/findings.png)
+
+A second sheet shows the kiln system at drawing scale: the preheater cyclones,
+the calciner, the kiln tube on its piers, the cooler, with the meters at the
+points where they sit. Parts the plan does not describe, such as a bypass or
+the split of fuel between the calciner and the main burner, are drawn dashed
+and marked as not stated in the plan.
+
+![Sheet 02, the kiln system](/tools/blueprint/sheet02.png)
+
+The panel on the left has two tabs. The first is the monitoring plan, written
+out item by item as Annex II point A.5 of Implementing Regulation (EU)
+2025/2547 requires it, per production process, with the clause reference at
+the foot of each section. The second is the reporting period, laid out as the
+sheets of the communication template with the template's own row numbers, so
+the figures an importer receives in the workbook can be read next to the
+element of the drawing they belong to. Clicking an entry in either tab
+highlights that element.
+
+![The monitoring plan tab and the reporting period tab](/tools/blueprint/panel.png)
 
 The drawing is generated from two documents. The first is the monitoring plan,
 converted into a machine-readable model. The model includes the installation,
 its production processes, the source streams, emission sources and process
 units, the flows between them, and the instruments. The schema is modeled
-after Annex II point A.5 of Implementing Regulation (EU) 2025/2547, which
-specifies what a monitoring plan must contain. Every element on the drawing
-carries its A.5 item and the sentence in the plan it came from. The conversion
-is done by a language model, limited to the structure the plan describes, in
-CBAM terms.
+after Annex II point A.5, which specifies what a monitoring plan must contain.
+Every element on the drawing carries its A.5 item and the sentence in the plan
+it came from. The conversion is done by a language model, limited to the
+structure the plan describes, in CBAM terms.
 
 The second document is the reporting period: one year's figures. It is laid
 out as the sheets of the communication template, the Commission's Excel
@@ -69,3 +85,8 @@ carbon does not close.
 The reference plant is Örnek Çimento, a fictional Turkish clinker and cement
 line, with these faults written into it on purpose. The tool has run on
 nothing else so far. Cement is the only sector it draws.
+
+Next is a real monitoring plan, which will need the translator to read more of
+the plan than it does now; a second sector, to see whether the drawing
+templates hold for other equipment; and reading a filled communication
+template back against the plan, with each mismatch as a finding.
