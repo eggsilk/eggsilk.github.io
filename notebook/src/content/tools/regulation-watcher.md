@@ -1,11 +1,11 @@
 ---
 id: T-003
 kind: tool
-title: Carbon regulation tracker
+title: Carbon regulation watcher
 gloss: Checks twice a week whether the CBAM and ETS regulations have a newer consolidated text, whether new acts cite them, whether the Commission has published new guidance, and whether Turkey's Official Gazette carries climate legislation. Findings arrive as commits.
 created: 2026-09-13
 status: in-development
-href: /tools/regulation-tracker/
+href: /tools/regulation-watcher/
 topics: [CBAM, ETS, regulation, tooling]
 ---
 
@@ -65,5 +65,5 @@ declaration from the default values, the engineer filling in the
 communication template under the version of the rules they were given. All
 of them work from a downloaded copy of the text, and nothing in the copy
 shows that the text has changed. The tables an importer falls back on changed
-twice in eight months. The tracker says which act moved and to which version,
+twice in eight months. The watcher says which act moved and to which version,
 as a dated line in a repository, before the text is cited again.
