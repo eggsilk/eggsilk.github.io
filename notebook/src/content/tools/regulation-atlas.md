@@ -12,7 +12,7 @@ topics: [CBAM, ETS, regulation, tooling]
 The atlas is a map of carbon-pricing regulation: 141 instruments across 119
 jurisdictions — 68 emissions trading systems, 70 carbon taxes, 3 border
 mechanisms — each with its status, its governing documents, and its relations
-to the others. [Open the atlas.](/atlas/)
+to the others. [Open the atlas.](../../atlas/)
 
 I audit emissions data under two of these regimes. The question "does this
 country have a carbon price, and under which law" comes up constantly in that

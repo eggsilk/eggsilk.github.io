@@ -1,6 +1,7 @@
 ---
 // One row: year (first row of its year only) | title [status] | dd/mm
 import { fmtShort, statusLabel } from '../lib/format';
+import { u } from '../lib/url';
 
 interface Props {
   title: string;
@@ -15,7 +16,7 @@ const loud = status === 'draft' || status === 'in-revision';
 ---
 <li>
   {href ? (
-    <a href={href}>
+    <a href={u(href)}>
       {showYear && <span class="yr">{created.getUTCFullYear()}</span>}
       <span class="t">{title}{flag && <span class={loud ? 'flag' : 'flag-quiet'}>{flag}</span>}</span>
       <time datetime={created.toISOString().slice(0, 10)}>{fmtShort(created)}</time>

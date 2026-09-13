@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import Entry from '../components/Entry.astro';
 import { getCollection } from 'astro:content';
@@ -13,7 +14,7 @@ const updated = new Date(Math.max(...[...notes, ...tools].map((e) => (e.data.mod
 
   <p>I build tools for emissions monitoring and verification, and I audit emissions data under the EU ETS and CBAM, as a freelance verifier and as a subcontractor to advisory firms. I live in Berlin.</p>
   <p>Before that I managed monitoring, reporting and filing for industrial carbon-offset projects at a project developer in New York.</p>
-  <p>You can reach me via <a href="mailto:mail@example.com">email</a>. Details are on the <a href="/about/">about</a> page.</p>
+  <p>You can reach me via <a href="mailto:mail@example.com">email</a>. Details are on the <a href={u("/about/")}>about</a> page.</p>
 
   <h3>Notes</h3>
   <ul class="list">

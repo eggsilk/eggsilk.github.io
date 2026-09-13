@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import atlas from '../../data/atlas.json';
+import { u } from '../../lib/url';
 
 const groups = [
   { key: 'border_mechanism', label: 'Border mechanisms' },
@@ -21,7 +22,7 @@ const byName = (a: any, b: any) => a.name.localeCompare(b.name);
       <ul class="list">
         {atlas.instruments.filter((i: any) => i.type === g.key).sort(byName).map((i: any) => (
           <li>
-            <a href={`/atlas/${i.id}/`}>
+            <a href={u(`/atlas/${i.id}/`)}>
               <span class="yr">{i.jurisdiction}</span>
               <span class="t">{i.name}{i.stale && <span class="flag-quiet">stale</span>}</span>
               <time class="muted">{i.status_label}</time>

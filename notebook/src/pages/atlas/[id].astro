@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { u } from '../../lib/url';
 import atlas from '../../data/atlas.json';
 
 export function getStaticPaths() {
@@ -24,7 +25,7 @@ const basisDoc = i.status_basis
     /* relation phrases need a wider label column than years do */
     .facts { --yearcol: 176px; }
   </style>
-  <a class="back" href="/atlas/">← Atlas</a>
+  <a class="back" href={u("/atlas/")}>← Atlas</a>
   <div class="head">
     <h1>{i.name}{i.name_local !== i.name && <span class="muted"> · {i.name_local}</span>}</h1>
     <p class="line">{i.jurisdiction} · {i.type.replace('_', ' ')} · {i.status_label} · as of {i.as_of}</p>
@@ -81,7 +82,7 @@ const basisDoc = i.status_basis
           <li>
             <span class="k">{e.phrase}</span>
             <span>
-              <a href={`/atlas/${e.other}/`}>{e.other_name}</a>
+              <a href={u(`/atlas/${e.other}/`)}>{e.other_name}</a>
               {e.note && <span class="muted"> — {e.note}</span>}
             </span>
           </li>

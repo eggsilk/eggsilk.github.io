@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { u } from '../lib/url';
 
 interface Props {
   title: string;
@@ -21,19 +22,19 @@ const nav = [
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{fullTitle}</title>
   {description && <meta name="description" content={description} />}
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href={u("/favicon.svg")} type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
-  <link rel="alternate" type="application/rss+xml" title="Ege Ipek" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Ege Ipek" href={u("/feed.xml")} />
 </head>
 <body>
   <div class="page">
     {(
       <div class="top">
-        <a href="/" aria-current={section === 'home' ? 'page' : undefined}>Ege Ipek</a>
+        <a href={u("/")} aria-current={section === 'home' ? 'page' : undefined}>Ege Ipek</a>
         <nav>
-          {nav.map((n) => <a href={n.href} aria-current={section === n.key ? 'page' : undefined}>{n.label}</a>)}
+          {nav.map((n) => <a href={u(n.href)} aria-current={section === n.key ? 'page' : undefined}>{n.label}</a>)}
         </nav>
       </div>
     )}

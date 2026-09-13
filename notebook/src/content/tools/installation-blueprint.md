@@ -15,7 +15,7 @@ monitoring plan and draws an interactive blueprint that demonstrates pertinent
 datapoints and information regarding embedded carbon as defined by the EU
 regulation.
 
-![The reference plant drawn from its monitoring plan](/tools/blueprint/sheet.png)
+![The reference plant drawn from its monitoring plan](../../assets/blueprint/sheet.png)
 
 The idea is to have the monitoring plan, and more importantly, the standard
 communication template, exhibited in a legible format.
@@ -28,17 +28,17 @@ ribbon is the amount of carbon. Colour is used only for carbon and for
 problems. A stream the plan mentions but does not measure is hatched and
 marked ND.
 
-![Source streams entering the clinker line](/tools/blueprint/sources.png)
+![Source streams entering the clinker line](../../assets/blueprint/sources.png)
 
 Where the carbon going into a unit does not match the carbon coming out, the
 difference is drawn as its own ribbon, marked UNACCOUNTED.
 
-![The kiln system, with the unaccounted carbon drawn as its own ribbon](/tools/blueprint/kiln.png)
+![The kiln system, with the unaccounted carbon drawn as its own ribbon](../../assets/blueprint/kiln.png)
 
 Findings are numbered markers with a line to the element they concern.
 Clicking one opens the finding and the clause it is based on.
 
-![Two findings](/tools/blueprint/findings.png)
+![Two findings](../../assets/blueprint/findings.png)
 
 A second sheet shows the kiln system at drawing scale: the preheater cyclones,
 the calciner, the kiln tube on its piers, the cooler, with the meters at the
@@ -46,7 +46,7 @@ points where they sit. Parts the plan does not describe, such as a bypass or
 the split of fuel between the calciner and the main burner, are drawn dashed
 and marked as not stated in the plan.
 
-![Sheet 02, the kiln system](/tools/blueprint/sheet02.png)
+![Sheet 02, the kiln system](../../assets/blueprint/sheet02.png)
 
 The panel on the left has two tabs. The first is the monitoring plan, written
 out item by item as Annex II point A.5 of Implementing Regulation (EU)
@@ -57,7 +57,7 @@ the figures an importer receives in the workbook can be read next to the
 element of the drawing they belong to. Clicking an entry in either tab
 highlights that element.
 
-![The monitoring plan tab and the reporting period tab](/tools/blueprint/panel.png)
+![The monitoring plan tab and the reporting period tab](../../assets/blueprint/panel.png)
 
 The drawing is generated from two documents. The first is the monitoring plan,
 converted into a machine-readable model. The model includes the installation,

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { u } from '../../lib/url';
 import { getCollection, render } from 'astro:content';
 import { fmtLong, statusLabel } from '../../lib/format';
 
@@ -46,6 +47,6 @@ const line = [
   )}
 
   {related.length > 0 && (
-    <p class="muted">See also {related.map((r, i) => <><a href={`/notes/${r!.id}/`}>{r!.data.title}</a>{i < related.length - 1 ? ', ' : ''}</>)}.</p>
+    <p class="muted">See also {related.map((r, i) => <><a href={u(`/notes/${r!.id}/`)}>{r!.data.title}</a>{i < related.length - 1 ? ', ' : ''}</>)}.</p>
   )}
 </Base>

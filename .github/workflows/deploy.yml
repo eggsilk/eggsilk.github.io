@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,7 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Site URL and base from the repository name
+        id: site
+        run: |
+          owner="${GITHUB_REPOSITORY_OWNER}"
+          repo="${GITHUB_REPOSITORY#*/}"
+          if [ -f notebook/public/CNAME ]; then
+            echo "url=https://$(cat notebook/public/CNAME)" >> "$GITHUB_OUTPUT"; echo "base=/" >> "$GITHUB_OUTPUT"
+          elif [ "$repo" = "$owner.github.io" ]; then
+            echo "url=https://$repo" >> "$GITHUB_OUTPUT"; echo "base=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=https://$owner.github.io" >> "$GITHUB_OUTPUT"; echo "base=/$repo" >> "$GITHUB_OUTPUT"
+          fi
       - uses: withastro/action@v3
+        env:
+          SITE_URL: ${{ steps.site.outputs.url }}
+          SITE_BASE: ${{ steps.site.outputs.base }}
         with:
           path: ./notebook
           node-version: 24
