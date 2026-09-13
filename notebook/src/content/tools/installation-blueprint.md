@@ -100,7 +100,7 @@ the plan names but nobody measures: nothing in the workbook shows these until
 someone checks it against the plan by hand.
 
 The blueprint puts the plant in front of all three as one drawing. A gap is a
-hatched stream with an ND mark, not a sentence missing from the plan. Double
+hatched stream with an ND mark on the drawing. Double
 counting is a fraction that does not add up to one, marked on the element it
 concerns. A workbook row sits next to the element it belongs to, and a row
 that belongs to nothing is a finding. The engineer sees what the plan leaves
