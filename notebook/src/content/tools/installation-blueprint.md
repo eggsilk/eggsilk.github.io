@@ -1,8 +1,8 @@
 ---
 id: T-001
 kind: tool
-title: Installation blueprint and audit engine
-gloss: A CBAM monitoring plan drawn as the plant it describes, with source streams, meters and sample points on a process sheet, carbon as ribbons, and the plan's gaps marked on the drawing. Reads plan text in, exchanges data with the Commission's communication workbook.
+title: Monitoring plan to blueprint translator
+gloss: Takes the description of an installation in a CBAM monitoring plan and draws an interactive blueprint of it, with the data points that matter for embedded carbon marked on the drawing.
 created: 2026-09-02
 modified: 2026-09-13
 status: in-development
@@ -10,68 +10,62 @@ href: /tools/installation-blueprint/
 topics: [verification, monitoring plan, CBAM, tooling]
 ---
 
-A CBAM monitoring plan describes a plant in prose and tables: which fuels and
-materials carry carbon, where each one is metered, where samples are taken, how
-each emission is calculated. A verifier reading the plan has to reconstruct
-that diagram before checking anything. This tool draws it, in the browser, with
-the data behind every element one click away. [Open the reference plant.](/blueprint/)
+This simple tool takes the description of a plant / installation in a CBAM
+monitoring plan and draws an interactive blueprint that demonstrates pertinent
+datapoints and information regarding embedded carbon as defined by the EU
+regulation.
 
-The drawing is owed anyway. Implementing Regulation (EU) 2025/2547 lists, in
-Annex II point A.5(13), among the minimum content of the plan "a suitable
-diagram and process description of the installation including the system
-boundaries of the installations and different production processes, providing
-evidence that there is neither double counting nor data gaps in the emissions
-of the installation". So the checks for double counting and data gaps run on
-the drawing itself. Fifteen checks, each citing the clause of the regulation it
-stands on.
+![The reference plant drawn from its monitoring plan](/tools/blueprint/sheet.png)
 
-The plant on the sheet is Örnek Çimento, a fictional Turkish clinker and cement
-line I wrote for the purpose, with faults in it: a residue stream leaving the
-kiln system without a calculation, a scrubbing limestone with attribution
-factors summing to 1.20, an alternative fuel zero-rated on a biomass fraction
-nobody has demonstrated, two weigh scales past their calibration date. The
-engine reports ten findings on it. Around the kiln, 300 394 t of carbon go in
-and 302 194 t come out, 1 800 t unaccounted, 0.6 per cent, drawn as its own
-ribbon. It is the only plant the tool has run on, and cement is the only sector
-it draws.
+[Open the reference plant.](/blueprint/)
 
-How the plant is drawn took most of the work. ISA-101, the standard for
-process-control screens, reserves colour for the abnormal; here the equipment
-is grey outline and colour is spent only on carbon and on findings. Equipment
-sits at its true elevation, laid out by hand, a preheater tower tall, a kiln
-long and inclined. Lines carry three weights, tags sit outside the symbol, and
-every stream carries a number keyed to a table under the sheet, where its
-determination method and clause live. Those are the conventions of ISO 10628,
-the standard for process flow diagrams. Carbon runs as ribbons, width
-proportional to tonnes; the ribbons do not balance by
-construction, so a unit that does not close stays open on the sheet, its
-difference marked UNACCOUNTED. A second sheet takes the kiln system to drawing
-scale: preheater tower, calciner, kiln tube on its piers, grate cooler.
+The idea is to have the monitoring plan, and more importantly, the standard
+communication template, exhibited in a legible format.
 
-Everything on the sheet is what the plan states. A parameter the plan does not
-give is drawn as a ghost and marked NOT STATED. The reference plan is silent on
-whether the kiln has a bypass and on how the coal splits between the calciner
-and the main burner; both show as such.
+The drawing follows process flow diagram conventions. Equipment is drawn in
+grey outline at its real height, so a preheater tower stands tall and a kiln
+lies long and low. Source streams enter from the left, each with its stream
+number and its meter. Carbon moves between units as ribbons. The width of a
+ribbon is the amount of carbon. Colour is used only for carbon and for
+problems. A stream the plan mentions but does not measure is hatched and
+marked ND.
 
-The plan comes in as text. A language model reads the monitoring plan and
-writes the structural document, and every element on the sheet carries the
-A.5 item and the sentence of the plan it came from, shown on click. The test is
-a round trip: the reference plan is translated with the hand-built model hidden
-from the translator, and the two are compared on stream and instrument names.
-Every mismatch on the way to passing was a place where the plan document
-disagreed with itself, a stream table it referred to and did not contain, two
-laboratory instruments with no tags.
+![Source streams entering the clinker line](/tools/blueprint/sources.png)
 
-The plan and the reporting period are separate documents. The plan says how
-every value is determined and never the value. The period holds one year's
-figures, laid out by the sheets and columns of the communication template the
-Commission publishes for operators to pass their data to importers, version
-2.1.1. The period exports into a blank copy of the template and imports back
-from a filled one. Excel recalculates the workbook, and the template's own
-specific embedded emissions differ from the sheet's by 0.0005 tCO2e per tonne.
-A workbook row that matches nothing in the plan comes through as a finding.
+Where the carbon going into a unit does not match the carbon coming out, the
+difference is drawn as its own ribbon, marked UNACCOUNTED.
 
-Open: the translator does not yet read the parameters the kiln sheet needs, so
-a translated plan shows more ghosts than the hand-built one. A diff between a
-plan-derived model and a loaded one, mismatches as findings, is the next build.
-A real monitoring plan will break something.
+![The kiln system, with the unaccounted carbon drawn as its own ribbon](/tools/blueprint/kiln.png)
+
+Findings are numbered markers with a line to the element they concern.
+Clicking one opens the finding and the clause it is based on. The panel on
+the left lists the monitoring plan by its required items, and clicking an
+entry highlights that element on the drawing.
+
+![The findings panel](/tools/blueprint/findings.png)
+
+The drawing is generated from two documents. The first is the monitoring plan,
+converted into a machine-readable model. The model includes the installation,
+its production processes, the source streams, emission sources and process
+units, the flows between them, and the instruments. The schema is modeled
+after Annex II point A.5 of Implementing Regulation (EU) 2025/2547, which
+specifies what a monitoring plan must contain. Every element on the drawing
+carries its A.5 item and the sentence in the plan it came from. The conversion
+is done by a language model, limited to the structure the plan describes, in
+CBAM terms.
+
+The second document is the reporting period: one year's figures. It is laid
+out as the sheets of the communication template, the Commission's Excel
+workbook for passing an installation's data to importers. The period can be
+exported into a blank template and imported back from a filled one.
+
+With the plan loaded, the tool checks its structure. With a period loaded, it
+also checks the figures. It flags source streams inside the boundary with no
+measurement, residues carrying carbon out with no calculation, attribution
+fractions that do not add up to one, zero-rated fuels with no demonstrated
+biomass fraction, instruments past their calibration date, and units where the
+carbon does not close.
+
+The reference plant is Örnek Çimento, a fictional Turkish clinker and cement
+line, with these faults written into it on purpose. The tool has run on
+nothing else so far. Cement is the only sector it draws.

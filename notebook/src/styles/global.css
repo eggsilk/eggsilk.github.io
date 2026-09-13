@@ -71,6 +71,7 @@ p { padding-top: 16px; }
 .head .line { color: var(--muted); }
 
 .prose h2 + p { padding-top: 8px; }
+.prose img { margin-top: 16px; }
 .prose ul, .prose ol { padding: 16px 0 0 20px; }
 .prose li + li { padding-top: 6px; }
 .prose strong { font-weight: 600; }
