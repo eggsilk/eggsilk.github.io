@@ -5,7 +5,7 @@ title: Monitoring plan to blueprint translator
 gloss: Takes the description of an installation in a CBAM monitoring plan and draws an interactive blueprint of it, with the data points that matter for embedded carbon marked on the drawing.
 created: 2026-09-02
 modified: 2026-09-13
-status: in-development
+status: published
 href: /tools/installation-blueprint/
 topics: [verification, monitoring plan, CBAM, tooling]
 ---

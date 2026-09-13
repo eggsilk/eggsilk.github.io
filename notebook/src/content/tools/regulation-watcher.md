@@ -4,7 +4,7 @@ kind: tool
 title: Carbon regulation watcher
 gloss: Checks twice a week whether the CBAM and ETS regulations have a newer consolidated text, whether new acts cite them, whether the Commission has published new guidance, and whether Turkey's Official Gazette carries climate legislation. Findings arrive as commits.
 created: 2026-09-13
-status: in-development
+status: published
 href: /tools/regulation-watcher/
 topics: [CBAM, ETS, regulation, tooling]
 ---
