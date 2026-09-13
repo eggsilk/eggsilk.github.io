@@ -10,8 +10,8 @@ interface Props {
 const { title, description, section = 'none' } = Astro.props;
 const fullTitle = section === 'home' ? 'Ege Ipek' : `${title} · Ege Ipek`;
 const nav = [
-  { href: '/notes/', label: 'Notes', key: 'notes' },
   { href: '/tools/', label: 'Tools', key: 'tools' },
+  { href: '/notes/', label: 'Notes', key: 'notes' },
   { href: '/about/', label: 'About', key: 'about' },
 ];
 ---

@@ -16,6 +16,12 @@ const updated = new Date(Math.max(...[...notes, ...tools].map((e) => (e.data.mod
   <p>Before that I managed monitoring, reporting and filing for industrial carbon-offset projects at a project developer in New York.</p>
   <p>You can reach me via <a href="mailto:mail@example.com">email</a>. Details are on the <a href={u("/about/")}>about</a> page.</p>
 
+  <h3>Tools</h3>
+  <ul class="list">
+    {withYearFlags(tools).map(({ item, showYear }) => (
+      <Entry title={item.data.title} href={item.data.href} created={item.data.created} status={item.data.status} showYear={showYear} />
+    ))}
+  </ul>
   <h3>Notes</h3>
   <ul class="list">
     {withYearFlags(notes).map(({ item, showYear }) => (
@@ -23,10 +29,4 @@ const updated = new Date(Math.max(...[...notes, ...tools].map((e) => (e.data.mod
     ))}
   </ul>
 
-  <h3>Tools</h3>
-  <ul class="list">
-    {withYearFlags(tools).map(({ item, showYear }) => (
-      <Entry title={item.data.title} href={item.data.href} created={item.data.created} status={item.data.status} showYear={showYear} />
-    ))}
-  </ul>
 </Base>
