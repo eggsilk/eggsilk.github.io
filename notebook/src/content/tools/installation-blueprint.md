@@ -82,11 +82,27 @@ fractions that do not add up to one, zero-rated fuels with no demonstrated
 biomass fraction, instruments past their calibration date, and units where the
 carbon does not close.
 
-The reference plant is Örnek Çimento, a fictional Turkish clinker and cement
-line, with these faults written into it on purpose. The tool has run on
-nothing else so far. Cement is the only sector it draws.
+This is for the three people who handle the same plant: the engineer at the
+installation who fills in the communication template, the consultant who
+prepares or checks it for the importer, and the verifier who has to confirm
+it. All three work from the monitoring plan, and the plan describes the plant
+in pages of prose and tables. Whether a stream is metered, where the sample is
+taken, which production process a residue belongs to, whether the carbon
+leaving a kiln is all accounted for: each of these is answered somewhere in
+the document, and none of it can be seen. The reader rebuilds the plant in
+their head, and each of the three rebuilds it differently.
 
-Next is a real monitoring plan, which will need the translator to read more of
-the plan than it does now; a second sector, to see whether the drawing
-templates hold for other equipment; and reading a filled communication
-template back against the plan, with each mismatch as a finding.
+The template adds a second version of the same plant, as rows of cells. A
+figure in the workbook has a source stream behind it, an instrument behind
+that, and a clause of the plan behind the instrument, and the workbook shows
+none of that chain. A blank cell, a row with no plan entry behind it, a stream
+the plan names but nobody measures: nothing in the workbook shows these until
+someone checks it against the plan by hand.
+
+The blueprint puts the plant in front of all three as one drawing. A gap is a
+hatched stream with an ND mark, not a sentence missing from the plan. Double
+counting is a fraction that does not add up to one, marked on the element it
+concerns. A workbook row sits next to the element it belongs to, and a row
+that belongs to nothing is a finding. The engineer sees what the plan leaves
+out before the verifier does, and the consultant and the verifier point at the
+same picture.
