@@ -10,7 +10,7 @@
   --code-bg: rgba(0, 0, 0, 0.04);
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --mono: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  --col: 900px;      /* the text column; benji.org uses 550px at 14px */
+  --col: 1100px;     /* the text column; benji.org uses 550px at 14px */
   --yearcol: 108px;  /* left column for years and labels */
 }
 
@@ -20,9 +20,9 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 460;
-  line-height: 24px;
+  line-height: 28px;
   letter-spacing: -0.1px;
   -webkit-font-smoothing: antialiased;
 }
@@ -31,18 +31,18 @@ a:hover { color: var(--ink); }
 p a, .prose li a, .tail li a, dd a, .facts a { text-decoration: underline; text-decoration-color: rgba(0, 0, 0, 0.25); text-underline-offset: 2px; }
 p a:hover, .prose li a:hover, .tail li a:hover, dd a:hover, .facts a:hover { text-decoration-color: var(--ink); }
 ::selection { background: #ededed; color: var(--ink); }
-img, video { max-width: 100%; display: block; }
+img, video { max-width: 100%; height: auto; display: block; }
 
-.page { max-width: var(--col); margin: 0 auto; padding: 80px 20px 80px; }
+.page { max-width: var(--col); margin: 0 auto; padding: 56px 20px 80px; }
 
 /* top line: name and sections */
 .top { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); padding-bottom: 8px; }
 .top a[aria-current="page"], .top a:hover { color: var(--ink); }
 .top nav { display: flex; gap: 16px; }
 
-h1 { font-size: 16px; font-weight: 500; line-height: 24px; }
-h2 { font-size: 16px; font-weight: 600; line-height: 24px; padding-top: 32px; }
-h3 { font-size: 16px; font-weight: 460; line-height: 24px; color: var(--muted); padding: 32px 0 8px; border-bottom: 1px solid var(--rule); }
+h1 { font-size: 18px; font-weight: 500; line-height: 28px; }
+h2 { font-size: 18px; font-weight: 600; line-height: 28px; padding-top: 32px; }
+h3 { font-size: 18px; font-weight: 460; line-height: 28px; color: var(--muted); padding: 32px 0 8px; border-bottom: 1px solid var(--rule); }
 p { padding-top: 16px; }
 .muted { color: var(--muted); }
 .flag { color: var(--accent); }
