@@ -17,8 +17,6 @@ regulation.
 
 ![The reference plant drawn from its monitoring plan](/tools/blueprint/sheet.png)
 
-[Open the reference plant.](/blueprint/)
-
 The idea is to have the monitoring plan, and more importantly, the standard
 communication template, exhibited in a legible format.
 
