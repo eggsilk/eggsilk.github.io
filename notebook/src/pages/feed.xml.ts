@@ -6,7 +6,7 @@ import { u } from '../lib/url';
 export async function GET(context: APIContext) {
   const notes = (await getCollection('notes')).filter((n) => !n.data.draft);
   return rss({
-    title: 'Ege Ipek — notes',
+    title: 'Climate&Eggs — notes',
     description: 'Dated notes on CBAM and EU ETS monitoring, reporting and verification.',
     site: new URL(u('/'), context.site!).href,
     items: notes
