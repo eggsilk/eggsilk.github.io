@@ -11,6 +11,10 @@ const updated = new Date(Math.max(...[...notes, ...tools].map((e) => (e.data.mod
 <Base title="Climate&Eggs" section="home" description="Climate&Eggs, by Ege Ipek. Tools and notes on emissions monitoring and verification.">
   <div class="muted">Updated {fmtLong(updated)}</div>
 
+  <p>Climate&Eggs is my website where I showcase tools, ideas, and opinions around industrial decarbonization.</p>
+  <p>Currently my focus is on the measurement of carbon emissions from the heavy emitters, and the financial and regulatory schemes around said emissions.</p>
+  <p>If any of this is remotely interesting to you, I would love to get in touch.</p>
+
   <h3>Tools</h3>
   <ul class="list">
     {withYearFlags(tools).map(({ item, showYear }) => (
